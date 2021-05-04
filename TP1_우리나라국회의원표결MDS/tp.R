@@ -1,47 +1,47 @@
-setwd("C:/Users/yoonjun/Downloads")
-raw <- read.csv("±¹È¸ÀÇ¿øº»È¸ÀÇÇ¥°áÁ¤º¸.csv")
+setwd("ë””ë ‰í† ë¦¬")
+raw <- read.csv("êµ­íšŒì˜ì›ë³¸íšŒì˜í‘œê²°ì •ë³´.csv")
 head(raw)
 str(raw)
 summary(raw)
 
 library(reshape)
-raw$ÀÇ¾È¹øÈ£ <- as.factor(raw$ÀÇ¾È¹øÈ£)
-unique(raw$Á¤´ç)
-# ±¹¹ÎÀÇÈû ~ ±¹¹ÎÀÇ´ç => 1 ~ 8
-raw$Á¤´ç <- ifelse(raw$Á¤´ç=='±¹¹ÎÀÇÈû',1,
-                 ifelse(raw$Á¤´ç=='´õºÒ¾î¹ÎÁÖ´ç',2,
-                        ifelse(raw$Á¤´ç=='¹«¼Ò¼Ó',3,
-                               ifelse(raw$Á¤´ç=='±âº»¼Òµæ´ç',4,
-                                      ifelse(raw$Á¤´ç=='Á¤ÀÇ´ç',5,
-                                             ifelse(raw$Á¤´ç=='½Ã´ëÀüÈ¯',6,
-                                                    ifelse(raw$Á¤´ç=='¿­¸°¹ÎÁÖ´ç',7,8)))))))
-raw$Á¤´ç <- as.factor(raw$Á¤´ç)
-# Ç¥°á°á°ú Âù¼º 1, ¹Ý´ë -1, ±â±Ç 0
-raw$Ç¥°á°á°ú <- ifelse(raw$Ç¥°á°á°ú=='Âù¼º',1,
-                   ifelse(raw$Ç¥°á°á°ú=='¹Ý´ë',-1,0))
-raw$Ç¥°á°á°ú <- as.numeric(raw$Ç¥°á°á°ú)
+raw$ì˜ì•ˆë²ˆí˜¸ <- as.factor(raw$ì˜ì•ˆë²ˆí˜¸)
+unique(raw$ì •ë‹¹)
+# êµ­ë¯¼ì˜íž˜ ~ êµ­ë¯¼ì˜ë‹¹ => 1 ~ 8
+raw$ì •ë‹¹ <- ifelse(raw$ì •ë‹¹=='êµ­ë¯¼ì˜íž˜',1,
+                 ifelse(raw$ì •ë‹¹=='ë”ë¶ˆì–´ë¯¼ì£¼ë‹¹',2,
+                        ifelse(raw$ì •ë‹¹=='ë¬´ì†Œì†',3,
+                               ifelse(raw$ì •ë‹¹=='ê¸°ë³¸ì†Œë“ë‹¹',4,
+                                      ifelse(raw$ì •ë‹¹=='ì •ì˜ë‹¹',5,
+                                             ifelse(raw$ì •ë‹¹=='ì‹œëŒ€ì „í™˜',6,
+                                                    ifelse(raw$ì •ë‹¹=='ì—´ë¦°ë¯¼ì£¼ë‹¹',7,8)))))))
+raw$ì •ë‹¹ <- as.factor(raw$ì •ë‹¹)
+# í‘œê²°ê²°ê³¼ ì°¬ì„± 1, ë°˜ëŒ€ -1, ê¸°ê¶Œ 0
+raw$í‘œê²°ê²°ê³¼ <- ifelse(raw$í‘œê²°ê²°ê³¼=='ì°¬ì„±',1,
+                   ifelse(raw$í‘œê²°ê²°ê³¼=='ë°˜ëŒ€',-1,0))
+raw$í‘œê²°ê²°ê³¼ <- as.numeric(raw$í‘œê²°ê²°ê³¼)
 
-# ÀÇ¿ø-ÀÇ¾È Ç¥°á°á°ú Çà·Ä »ý¼º.
-data.matrix <- cast(raw, ÀÇ¿ø ~ ÀÇ¾È¹øÈ£, value = 'Ç¥°á°á°ú' ) 
+# ì˜ì›-ì˜ì•ˆ í‘œê²°ê²°ê³¼ í–‰ë ¬ ìƒì„±.
+data.matrix <- cast(raw, ì˜ì› ~ ì˜ì•ˆë²ˆí˜¸, value = 'í‘œê²°ê²°ê³¼' ) 
 View(data.matrix)
 str(data.matrix)
-dim(data.matrix) # 272¸íÀÇ ÀÇ¿ø°ú, 15°³ÀÇ ÀÇ¾È
+dim(data.matrix) # 272ëª…ì˜ ì˜ì›ê³¼, 15ê°œì˜ ì˜ì•ˆ
 data.matrix <- as.matrix(data.matrix)
 data.matrix
 
-# ÀÇ¿ø-ÀÇ¾È Çà·Ä°ö 
+# ì˜ì›-ì˜ì•ˆ í–‰ë ¬ê³± 
 mp.data.matrix <- data.matrix %*% t(data.matrix)
 
-# °Å¸® µµÃâ
+# ê±°ë¦¬ ë„ì¶œ
 mp.data.matrix.dist <- dist(mp.data.matrix)
 
-# ÁÂÇ¥ ÃßÃâ
+# ì¢Œí‘œ ì¶”ì¶œ
 mp.data.matrix.dist.mds <- cmdscale((mp.data.matrix.dist))
 mp.data.matrix.dist.mds
 
-# ½Ã°¢È­ À§ÇÑ µ¥ÀÌÅÍÇÁ·¹ÀÓ »ý¼º
+# ì‹œê°í™” ìœ„í•œ ë°ì´í„°í”„ë ˆìž„ ìƒì„±
 rollcall.mds <- as.data.frame(mp.data.matrix.dist.mds)
-ÀÇ¿ø_<- row.names(rollcall.mds)
+ì˜ì›_<- row.names(rollcall.mds)
 for_party <- raw[,c('name','party')]
 for_party <- unique(for_party)
 for_party <- for_party[c(order(for_party$name)),]
@@ -49,7 +49,7 @@ View(for_party)
 
 rollcall.mds <- data.frame(x=rollcall.mds$V1,
                            y=rollcall.mds$V2,
-                           name=ÀÇ¿ø_,
+                           name=ì˜ì›_,
                            party=for_party$party)
 head(rollcall.mds)
 
