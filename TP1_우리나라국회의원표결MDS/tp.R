@@ -1,3 +1,12 @@
+# 가장 최근의 스크립트가 저장되지 않은 채 삭제해버리는 바람에, 해당 스크립트로는 폴더 내 그래프들과 같이 시각화할 수 없습니다.
+# 프로세스만 참고 바랍니다.
+# 문의는 ynjoon@naver.com 으로 메일주세요.
+
+# You can't make pictures like in this folder using with this script because this script is not most recent one.
+# Accidently, I deleted files about this project without checking this script which didn't update the latest one.
+# Please, only note the process for mds in this script.
+# If you have any inquiries, mail to <ynjoon@naver.com> please.
+
 setwd("디렉토리")
 raw <- read.csv("국회의원본회의표결정보.csv")
 head(raw)
