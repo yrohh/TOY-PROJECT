@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<!-- saved from url=(0029)https://yrohh.tistory.com/210 -->
+<html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="./우리나라 국회의원 유사성 시각적 탐색_files/lightbox.min.css"><link rel="stylesheet" type="text/css" href="./우리나라 국회의원 유사성 시각적 탐색_files/font.css"><link rel="stylesheet" type="text/css" href="./우리나라 국회의원 유사성 시각적 탐색_files/content.css"><!--[if lt IE 9]><script src="https://t1.daumcdn.net/tistory_admin/lib/jquery/jquery-1.12.4.min.js"></script><![endif]--><!--[if gte IE 9]>
+<!--><script src="./우리나라 국회의원 유사성 시각적 탐색_files/f(4).txt"></script><script src="./우리나라 국회의원 유사성 시각적 탐색_files/f(5).txt" id="google_shimpl"></script><script src="./우리나라 국회의원 유사성 시각적 탐색_files/jquery-3.2.1.min.js.다운로드"></script><!--<![endif]-->
+<script src="./우리나라 국회의원 유사성 시각적 탐색_files/lightbox-plus-jquery.min.js.다운로드"></script>
+<script>
+lightbox.options.fadeDuration = 200;
+lightbox.options.resizeDuration = 200;
+lightbox.options.wrapAround = false;
+lightbox.options.albumLabel = "%1 / %2";
+</script>
+<script>var tjQuery = jQuery.noConflict(true);</script><style type="text/css">.tt_article_useless_p_margin p {padding-top:0 !important;padding-bottom:0 !important;margin-top:0 !important;margin-bottom:0 !important;}</style><meta name="referrer" content="always"><link rel="icon" href="https://t1.daumcdn.net/tistory_admin/static/top/favicon_0630.ico"><link rel="apple-touch-icon" href="https://img1.daumcdn.net/thumb/C180x180/?fname=https%3A%2F%2Ftistory1.daumcdn.net%2Ftistory%2F4034028%2Fattach%2F1e7b73dedf144f5f8f10a45788d7290f">
+<link rel="apple-touch-icon" sizes="76x76" href="https://img1.daumcdn.net/thumb/C76x76/?fname=https%3A%2F%2Ftistory1.daumcdn.net%2Ftistory%2F4034028%2Fattach%2F1e7b73dedf144f5f8f10a45788d7290f">
+<link rel="apple-touch-icon" sizes="120x120" href="https://img1.daumcdn.net/thumb/C120x120/?fname=https%3A%2F%2Ftistory1.daumcdn.net%2Ftistory%2F4034028%2Fattach%2F1e7b73dedf144f5f8f10a45788d7290f">
+<link rel="apple-touch-icon" sizes="152x152" href="https://img1.daumcdn.net/thumb/C152x152/?fname=https%3A%2F%2Ftistory1.daumcdn.net%2Ftistory%2F4034028%2Fattach%2F1e7b73dedf144f5f8f10a45788d7290f"><meta name="description" content="배경 책 의 9장을 참고해, MDS(Multi-Dimensional Scaling)로 미 상원의원들의 유사성을 시각적으로 탐색하는 과정을 학습해보았고, 101회부터 110회의 국회 중 약 5회에서 아래와 같이 양극화된 모습을 볼 수 있..">
+
+<!-- BEGIN OPENGRAPH -->
+<link rel="canonical" href="https://yrohh.tistory.com/210"><meta property="og:type" content="article"><meta property="og:url" content="https://yrohh.tistory.com/210"><meta property="og:site_name" content=":)"><meta property="og:title" content="우리나라 국회의원 유사성 시각적 탐색"><meta name="by" content="yrohh_"><meta property="og:description" content="배경 책 의 9장을 참고해, MDS(Multi-Dimensional Scaling)로 미 상원의원들의 유사성을 시각적으로 탐색하는 과정을 학습해보았고, 101회부터 110회의 국회 중 약 5회에서 아래와 같이 양극화된 모습을 볼 수 있.."><meta property="og:image" content="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FXiY77%2Fbtq4bmGqT68%2F7Vk05RHia9Vn8UsCJzxBXk%2Fimg.png">
+<!-- END OPENGRAPH -->
+
+
+
+<!-- BEGIN TWITTERCARD -->
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@TISTORY"><meta name="twitter:title" content="우리나라 국회의원 유사성 시각적 탐색"><meta name="twitter:description" content="배경 책 의 9장을 참고해, MDS(Multi-Dimensional Scaling)로 미 상원의원들의 유사성을 시각적으로 탐색하는 과정을 학습해보았고, 101회부터 110회의 국회 중 약 5회에서 아래와 같이 양극화된 모습을 볼 수 있.."><meta property="twitter:image" content="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FXiY77%2Fbtq4bmGqT68%2F7Vk05RHia9Vn8UsCJzxBXk%2Fimg.png">
+<!-- END TWITTERCARD -->
+
+
+
+<!-- BEGIN DAUMAPP -->
+<meta property="dg:plink" content="https://yrohh.tistory.com/210"><meta name="plink" content="https://yrohh.tistory.com/210"><meta name="title" content="우리나라 국회의원 유사성 시각적 탐색"><meta name="article:media_name" content=":)"><meta property="article:mobile_url" content="https://yrohh.tistory.com/m/210"><meta property="article:pc_url" content="https://yrohh.tistory.com/210"><meta property="article:mobile_view_url" content="https://yrohh.tistory.com/m/210"><meta property="article:pc_view_url" content="https://yrohh.tistory.com/210"><meta property="article:talk_channel_view_url" content="https://yrohh.tistory.com/m/210"><meta property="article:pc_service_home" content="https://www.tistory.com"><meta property="article:mobile_service_home" content="https://www.tistory.com/m"><meta property="article:txid" content="4034028_210"><meta property="article:published_time" content="2021-05-04T20:59:46+09:00"><meta property="og:regDate" content="20210504205946"><meta property="article:modified_time" content="2021-05-04T22:52:52+09:00">
+<!-- END DAUMAPP -->
+
+
+
+<!-- BEGIN STRUCTURED_DATA -->
+<script type="application/ld+json">{"@context":"http:\/\/schema.org","@type":"BlogPosting","mainEntityOfPage":{"@id":"https:\/\/yrohh.tistory.com\/210"},"url":"https:\/\/yrohh.tistory.com\/210","headline":"\uc6b0\ub9ac\ub098\ub77c \uad6d\ud68c\uc758\uc6d0 \uc720\uc0ac\uc131 \uc2dc\uac01\uc801 \ud0d0\uc0c9","description":"\ubc30\uacbd \ucc45 \uc758 9\uc7a5\uc744 \ucc38\uace0\ud574, MDS(Multi-Dimensional Scaling)\ub85c \ubbf8 \uc0c1\uc6d0\uc758\uc6d0\ub4e4\uc758 \uc720\uc0ac\uc131\uc744 \uc2dc\uac01\uc801\uc73c\ub85c \ud0d0\uc0c9\ud558\ub294 \uacfc\uc815\uc744 \ud559\uc2b5\ud574\ubcf4\uc558\uace0, 101\ud68c\ubd80\ud130 110\ud68c\uc758 \uad6d\ud68c \uc911 \uc57d 5\ud68c\uc5d0\uc11c \uc544\ub798\uc640 \uac19\uc774 \uc591\uadf9\ud654\ub41c \ubaa8\uc2b5\uc744 \ubcfc \uc218 \uc788..","author":{"@type":"Person","name":"yrohh_"},"image":{"@type":"ImageObject","url":"https:\/\/img1.daumcdn.net\/thumb\/R800x0\/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FXiY77%2Fbtq4bmGqT68%2F7Vk05RHia9Vn8UsCJzxBXk%2Fimg.png","width":"800px","height":"800px"},"datePublished":"20210504T20:59:46+09:00","dateModified":"20210504T22:52:52+09:00","publisher":{"@type":"Organization","name":"TISTORY","logo":{"@type":"ImageObject","url":"https:\/\/t1.daumcdn.net\/tistory_admin\/static\/images\/openGraph\/opengraph.png","width":"800px","height":"800px"}}}</script><meta name="robots" content="max-image-preview:large">
+<!-- END STRUCTURED_DATA -->
+
+
+
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+<script data-ad-client="ca-pub-3645328017045656" async="" src="./우리나라 국회의원 유사성 시각적 탐색_files/f(6).txt" data-checked-head="true"></script>
+<title>우리나라 국회의원 유사성 시각적 탐색</title>
+<link rel="stylesheet" href="./우리나라 국회의원 유사성 시각적 탐색_files/style.css">
+<script src="./우리나라 국회의원 유사성 시각적 탐색_files/jquery-1.12.4.min.js.다운로드"></script>
+<style type="text/css">
+
+.entry-content a, .post-header h1 em, .comments h2 .count {color:#04beb8}
+.comment-form .submit button:hover, .comment-form .submit button:focus {background-color:#04beb8}
+
+
+
+</style>
+
+<style type="text/css">
+		#daumSearchBox {
+			height: 21px;
+			background-image : url(//i1.daumcdn.net/imgsrc.search/search_all/show/tistory/plugin/bg_search2_2.gif);
+			margin: 5px auto ;
+			padding: 0;
+		}
+		#daumSearchBox input {
+			background: none;
+			margin : 0;
+			padding : 0;
+			border : 0;
+		}
+		#daumSearchBox #daumLogo {
+			width: 34px;
+			height: 21px;
+			float: left;
+			margin-right: 5px;
+			background-image : url(//i1.daumcdn.net/img-media/tistory/img/bg_search1_2_2010ci.gif);
+		}
+		#daumSearchBox #show_q {
+			background-color: transparent;
+			border: none;
+			font: 12px Gulim, Sans-serif;
+			color: #555;
+			margin-top: 4px;
+			margin-right: 15px;
+			float: left;
+		}
+
+		#daumSearchBox #show_btn {
+			background-image : url(//i1.daumcdn.net/imgsrc.search/search_all/show/tistory/plugin/bt_search_2.gif);
+			width: 37px;
+			height: 21px;
+			float: left;
+			margin:0;
+			cursor:pointer;
+			text-indent:-1000em;
+		}
+	</style>
+<link rel="stylesheet" type="text/css" href="./우리나라 국회의원 유사성 시각적 탐색_files/style(1).css">
+<script type="text/javascript" src="./우리나라 국회의원 유사성 시각적 탐색_files/profile.js.다운로드"></script>
+	<style type="text/css">
+		.another_category { border: 1px solid #E5E5E5; padding: 10px 10px 5px; margin:10px 0; clear: both; }
+		.another_category h4 { font-size: 12px !important; margin: 0 !important; border-bottom: 1px solid #E5E5E5 !important; padding: 2px 0 6px !important; }
+		.another_category h4 a { font-weight: bold !important; }
+		.another_category table { table-layout: fixed; border-collapse: collapse; width: 100% !important; margin-top: 10px !important; }
+		* html .another_category table { width: auto !important; }
+		*:first-child+html .another_category table { width: auto !important; }
+		.another_category th, .another_category td { padding: 0 0 4px !important; }
+		.another_category th { text-align: left; font-size: 12px !important; font-weight: normal;  word-break: break-all; overflow: hidden; line-height: 1.5; }
+		.another_category td { text-align: right; width: 80px; font-size: 11px; }
+		.another_category th a { font-weight: normal; text-decoration: none; border: none !important; }
+		.another_category th a.current{ font-weight: bold; text-decoration: none !important; border-bottom: 1px solid !important; }
+		.another_category th span { font-weight: normal; text-decoration: none; font: 10px Tahoma, Sans-serif; border: none !important; }
+
+		.another_category_color_gray, .another_category_color_gray h4 { border-color: #E5E5E5 !important; }
+		.another_category_color_gray * { color: #909090 !important; }
+		.another_category_color_gray th a.current{border-color:#909090 !important;}
+		.another_category_color_gray h4, .another_category_color_gray h4 a { color: #737373 !important; }
+
+
+		.another_category_color_red, .another_category_color_red h4 { border-color: #F6D4D3 !important;  }
+		.another_category_color_red * { color: #E86869 !important; }
+		.another_category_color_red th a.current{border-color:#E86869 !important;}
+		.another_category_color_red h4, .another_category_color_red h4 a { color: #ED0908 !important; }
+
+
+		.another_category_color_green, .another_category_color_green h4 { border-color: #CCE7C8 !important; }
+		.another_category_color_green * { color: #64C05B !important; }
+		.another_category_color_green th a.current{border-color:#64C05B !important;}
+		.another_category_color_green h4, .another_category_color_green h4 a { color: #3EA731 !important; }
+
+
+		.another_category_color_blue, .another_category_color_blue h4 { border-color: #C8DAF2 !important; }
+		.another_category_color_blue * { color: #477FD6 !important; }
+		.another_category_color_blue th a.current{border-color:#477FD6 !important;}
+		.another_category_color_blue h4, .another_category_color_blue h4 a { color: #1960CA !important; }
+
+
+		.another_category_color_violet, .another_category_color_violet h4 { border-color: #E1CEEC !important;  }
+		.another_category_color_violet * { color:#9D64C5 !important; }
+		.another_category_color_violet th a.current{border-color:#9D64C5 !important;}
+		.another_category_color_violet h4, .another_category_color_violet h4 a { color: #7E2CB5 !important; }
+	</style>
+<script type="text/javascript">
+        
+        window.TistoryBlog = {
+            basePath: "",
+            url: "https://yrohh.tistory.com",
+            tistoryUrl: "https://yrohh.tistory.com",
+			manageUrl: 'https://yrohh.tistory.com/manage',
+            token: 'Vc0eMjvTDcEKqmRBd0njVA=='
+        };
+        var servicePath = "";
+        var blogURL = "";
+    </script>
+
+	<script> (function() { window.orgjQuery = window.jQuery; window.jQuery = tjQuery })()</script>
+    <script type="text/javascript" defer="" src="./우리나라 국회의원 유사성 시각적 탐색_files/reaction-button-container.min.js.다운로드"></script>
+    <script> (function() { window.jQuery = window.orgjQuery; delete window.orgjQuery })()</script>
+        <script type="text/javascript" src="./우리나라 국회의원 유사성 시각적 탐색_files/base.js.다운로드"></script>
+        <link rel="stylesheet" type="text/css" href="./우리나라 국회의원 유사성 시각적 탐색_files/dialog.css">
+            <link rel="stylesheet" type="text/css" href="./우리나라 국회의원 유사성 시각적 탐색_files/font(1).css">
+    <link rel="stylesheet" type="text/css" href="./우리나라 국회의원 유사성 시각적 탐색_files/postBtn.css">
+        <link rel="stylesheet" type="text/css" href="./우리나라 국회의원 유사성 시각적 탐색_files/tistory.css">
+        <script src="./우리나라 국회의원 유사성 시각적 탐색_files/kakao.min.js.다운로드"></script>
+
+        <link rel="stylesheet" type="text/css" href="./우리나라 국회의원 유사성 시각적 탐색_files/revenue.css"><meta http-equiv="origin-trial" content="A+b/H0b8RPXNaJgaNFpO0YOFuGK6myDQXlwnJB3SwzvNMfcndat4DZYMrP4ClJIzYWo3/yP2S+8FTZ/lpqbPAAEAAABueyJvcmlnaW4iOiJodHRwczovL2ltYXNkay5nb29nbGVhcGlzLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2MjYyMjA3OTksImlzVGhpcmRQYXJ0eSI6dHJ1ZX0="><meta http-equiv="origin-trial" content="A9ZgbRtm4pU3oZiuNzOsKcC8ppFSZdcjP2qYcdQrFKVzkmiWH1kdYY1Mi9x7G8+PS8HV9Ha9Cz0gaMdKsiVZIgMAAAB7eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2MjYyMjA3OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AxL6oBxcpn5rQDPKSAs+d0oxNyJYq2/4esBUh3Yx5z8QfcLu+AU8iFCXYRcr/CEEfDnkxxLTsvXPJFQBxHfvkgMAAACBeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2MjYyMjA3OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A9KPtG5kl3oLTk21xqynDPGQ5t18bSOpwt0w6kGa6dEWbuwjpffmdUpR3W+faZDubGT+KIk2do0BX2ca16x8qAcAAACBeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2MjYyMjA3OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A3HucHUo1oW9s+9kIKz8mLkbcmdaj5lxt3eiIMp1Nh49dkkBlg1Fhg4Fd/r0vL69mRRA36YutI9P/lJUfL8csQoAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjI2MjIwNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A0OysezhLoCRYomumeYlubLurZTCmsjTb087OvtCy95jNM65cfEsbajrJnhaGwiTxhz38ZZbm+UhUwQuXfVPTg0AAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjI2MjIwNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="AxoOxdZQmIoA1WeAPDixRAeWDdgs7ZtVFfH2y19ziTgD1iaHE5ZGz2UdSjubkWvob9C5PrjUfkWi4ZSLgWk3Xg8AAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjI2MjIwNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A7+rMYR5onPnACrz+niKSeFdH3xw1IyHo2AZSHmxrofRk9w4HcQPMYcpBUKu6OQ6zsdxf4m/vqa6tG6Na4OLpAQAAAB4eyJvcmlnaW4iOiJodHRwczovL2ltYXNkay5nb29nbGVhcGlzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjI2MjIwNzk5LCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A+b/H0b8RPXNaJgaNFpO0YOFuGK6myDQXlwnJB3SwzvNMfcndat4DZYMrP4ClJIzYWo3/yP2S+8FTZ/lpqbPAAEAAABueyJvcmlnaW4iOiJodHRwczovL2ltYXNkay5nb29nbGVhcGlzLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2MjYyMjA3OTksImlzVGhpcmRQYXJ0eSI6dHJ1ZX0="><meta http-equiv="origin-trial" content="A9ZgbRtm4pU3oZiuNzOsKcC8ppFSZdcjP2qYcdQrFKVzkmiWH1kdYY1Mi9x7G8+PS8HV9Ha9Cz0gaMdKsiVZIgMAAAB7eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2MjYyMjA3OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AxL6oBxcpn5rQDPKSAs+d0oxNyJYq2/4esBUh3Yx5z8QfcLu+AU8iFCXYRcr/CEEfDnkxxLTsvXPJFQBxHfvkgMAAACBeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2MjYyMjA3OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A9KPtG5kl3oLTk21xqynDPGQ5t18bSOpwt0w6kGa6dEWbuwjpffmdUpR3W+faZDubGT+KIk2do0BX2ca16x8qAcAAACBeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2MjYyMjA3OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A3HucHUo1oW9s+9kIKz8mLkbcmdaj5lxt3eiIMp1Nh49dkkBlg1Fhg4Fd/r0vL69mRRA36YutI9P/lJUfL8csQoAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjI2MjIwNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A0OysezhLoCRYomumeYlubLurZTCmsjTb087OvtCy95jNM65cfEsbajrJnhaGwiTxhz38ZZbm+UhUwQuXfVPTg0AAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjI2MjIwNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="AxoOxdZQmIoA1WeAPDixRAeWDdgs7ZtVFfH2y19ziTgD1iaHE5ZGz2UdSjubkWvob9C5PrjUfkWi4ZSLgWk3Xg8AAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjI2MjIwNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A7+rMYR5onPnACrz+niKSeFdH3xw1IyHo2AZSHmxrofRk9w4HcQPMYcpBUKu6OQ6zsdxf4m/vqa6tG6Na4OLpAQAAAB4eyJvcmlnaW4iOiJodHRwczovL2ltYXNkay5nb29nbGVhcGlzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjI2MjIwNzk5LCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A+b/H0b8RPXNaJgaNFpO0YOFuGK6myDQXlwnJB3SwzvNMfcndat4DZYMrP4ClJIzYWo3/yP2S+8FTZ/lpqbPAAEAAABueyJvcmlnaW4iOiJodHRwczovL2ltYXNkay5nb29nbGVhcGlzLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2MjYyMjA3OTksImlzVGhpcmRQYXJ0eSI6dHJ1ZX0="><meta http-equiv="origin-trial" content="A9ZgbRtm4pU3oZiuNzOsKcC8ppFSZdcjP2qYcdQrFKVzkmiWH1kdYY1Mi9x7G8+PS8HV9Ha9Cz0gaMdKsiVZIgMAAAB7eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2MjYyMjA3OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AxL6oBxcpn5rQDPKSAs+d0oxNyJYq2/4esBUh3Yx5z8QfcLu+AU8iFCXYRcr/CEEfDnkxxLTsvXPJFQBxHfvkgMAAACBeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2MjYyMjA3OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A9KPtG5kl3oLTk21xqynDPGQ5t18bSOpwt0w6kGa6dEWbuwjpffmdUpR3W+faZDubGT+KIk2do0BX2ca16x8qAcAAACBeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2MjYyMjA3OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A3HucHUo1oW9s+9kIKz8mLkbcmdaj5lxt3eiIMp1Nh49dkkBlg1Fhg4Fd/r0vL69mRRA36YutI9P/lJUfL8csQoAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjI2MjIwNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A0OysezhLoCRYomumeYlubLurZTCmsjTb087OvtCy95jNM65cfEsbajrJnhaGwiTxhz38ZZbm+UhUwQuXfVPTg0AAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjI2MjIwNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="AxoOxdZQmIoA1WeAPDixRAeWDdgs7ZtVFfH2y19ziTgD1iaHE5ZGz2UdSjubkWvob9C5PrjUfkWi4ZSLgWk3Xg8AAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjI2MjIwNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A7+rMYR5onPnACrz+niKSeFdH3xw1IyHo2AZSHmxrofRk9w4HcQPMYcpBUKu6OQ6zsdxf4m/vqa6tG6Na4OLpAQAAAB4eyJvcmlnaW4iOiJodHRwczovL2ltYXNkay5nb29nbGVhcGlzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjI2MjIwNzk5LCJpc1RoaXJkUGFydHkiOnRydWV9"><style type="text/css">#DragSchLayer{display:block;position:absolute;z-index:1000;width:61px;height:31px;margin:-30px 0px 0px -5px;background:url(//search1.daumcdn.net/search/statics/common/pi/btn_drag_rect.png);cursor:pointer}             @media             only screen and (-webkit-min-device-pixel-ratio: 1.5),             only screen and (min-device-pixel-ratio: 1.5),             only screen and (min-resolution: 1.5dppx) {             #DragSchLayer{background-image:url(//search1.daumcdn.net/search/statics/common/pi/r2/btn_drag_rect.png);background-size:61px 31px}}            </style><link rel="preload" href="./우리나라 국회의원 유사성 시각적 탐색_files/f(7).txt" as="script"><script type="text/javascript" src="./우리나라 국회의원 유사성 시각적 탐색_files/f(7).txt"></script><link rel="preload" href="./우리나라 국회의원 유사성 시각적 탐색_files/f(8).txt" as="script"><script type="text/javascript" src="./우리나라 국회의원 유사성 시각적 탐색_files/f(8).txt"></script></head>
+<body id="tt-body-page" class="layout-aside-right paging-number promotion-mobile-hide">
+<script type="text/javascript">
+	(function() {
+		if (!window.T) {
+			window.T = {}
+		}
+		window.T.config = {"TOP_SSL_URL":"https:\/\/www.tistory.com","PREVIEW":false,"ROLE":"owner","PREV_PAGE":"\/211","NEXT_PAGE":"\/209","BLOG":{"isDormancy":false,"title":":)"},"NEED_COMMENT_LOGIN":false,"COMMENT_LOGIN_CONFIRM_MESSAGE":"","LOGIN_URL":"https:\/\/www.tistory.com\/auth\/login\/?redirectUrl=http%3A%2F%2Fyrohh.tistory.com%2F210","DEFAULT_URL":"https:\/\/yrohh.tistory.com","USER":{"name":"yrohh_","homepage":"https:\/\/yrohh.tistory.com"},"ROLE_GROUP":"member","SUBSCRIPTION":{"status":"none","isConnected":false,"isProcessing":false,"isPending":false,"isWait":false,"isNone":true},"IS_LOGIN":true,"HAS_BLOG":true,"TOP_URL":"https:\/\/www.tistory.com","JOIN_URL":"https:\/\/www.tistory.com\/member\/join"};
+		window.appInfo = {"domain":"tistory.com","topUrl":"https:\/\/www.tistory.com","loginUrl":"https:\/\/www.tistory.com\/auth\/login","logoutUrl":"https:\/\/www.tistory.com\/auth\/logout"};
+
+        window.initData = {};
+                    initData.user = {"id":"4451914","loginId":"ynjoon@nate.com","name":"yrohh_"};
+        
+	})();
+</script>
+
+	<script type="text/javascript" src="./우리나라 국회의원 유사성 시각적 탐색_files/owner.js.다운로드"></script>
+<script type="text/javascript" src="./우리나라 국회의원 유사성 시각적 탐색_files/common.js.다운로드"></script>
+<div style="margin:0; padding:0; border:none; background:none; float:none; clear:none; z-index:0"></div>
+<div id="acc-nav">
+	<a href="https://yrohh.tistory.com/210#content">본문 바로가기</a>
+</div>
+<div id="wrap" style="height: auto !important;">
+	<header id="header">
+		<div class="inner">
+			<h1>
+				<a href="https://yrohh.tistory.com/">
+					
+					
+						:)
+					
+				</a>
+			</h1>
+			<div class="util">
+				<div class="search">
+					
+						<input type="text" name="search" value="" placeholder="검색내용을 입력하세요." onkeypress="if (event.keyCode == 13) { try{window.location.href=&#39;/search/&#39;+looseURIEncode(document.getElementsByName(&#39;search&#39;)[0].value);document.getElementsByName(&#39;search&#39;)[0].value=&#39;&#39;;return false;}catch(e){} }">
+						<button type="submit" onclick="try{window.location.href=&#39;/search/&#39;+looseURIEncode(document.getElementsByName(&#39;search&#39;)[0].value);document.getElementsByName(&#39;search&#39;)[0].value=&#39;&#39;;return false;}catch(e){}">검색</button>
+					
+				</div>
+				<div class="profile">
+					<button type="button"><img src="./우리나라 국회의원 유사성 시각적 탐색_files/1e7b73dedf144f5f8f10a45788d7290f" alt="블로그 이미지"></button>
+					<nav style="display: none;">
+						<ul>
+							<li><a href="https://yrohh.tistory.com/manage">관리</a></li>
+							<li><a href="https://yrohh.tistory.com/manage/entry/post">글쓰기</a></li>
+							<li class="login" style="display: none;"><a href="https://yrohh.tistory.com/210#">로그인</a></li>
+							<li class="logout"><a href="https://yrohh.tistory.com/210#">로그아웃</a></li>
+						</ul>
+					</nav>
+				</div>
+				<button type="button" class="menu"><span>메뉴</span></button>
+			</div>
+			<nav id="gnb">
+				<ul style="width: 271px;">		<li class="t_menu_home first current">
+			<a href="https://yrohh.tistory.com/">홈</a>
+		</li>
+				<li class="t_menu_tag">
+			<a href="https://yrohh.tistory.com/tag">태그</a>
+		</li>
+				<li class="t_menu_guestbook last">
+			<a href="https://yrohh.tistory.com/guestbook">방명록</a>
+		</li>
+		</ul>
+			</nav>
+		</div>
+	</header>
+	<section id="container" style="height: auto !important;">
+		
+		<div class="content-wrap" style="height: auto !important;">
+			<article id="content" style="height: auto !important;">
+				
+
+				
+
+				
+
+				
+
+				
+
+				
+
+				<div class="inner" style="height: auto !important;">
+					
+
+						
+
+						
+							<div class="post-cover" style="background-image:url(https://blog.kakaocdn.net/dn/XiY77/btq4bmGqT68/7Vk05RHia9Vn8UsCJzxBXk/img.png)">
+								<div class="inner">
+									<span class="category">궁금하니깐</span>
+									<h1>우리나라 국회의원 유사성 시각적 탐색</h1>
+									<span class="meta">
+										<span class="author">by yrohh_</span>
+										<span class="date">2021. 5. 4.</span>
+										
+											<a href="https://yrohh.tistory.com/manage/post/210?returnURL=https%3A%2F%2Fyrohh.tistory.com%2F210">수정</a>
+											<a href="https://yrohh.tistory.com/210#" onclick="deleteEntry(210); return false;">삭제</a>
+										
+									</span>
+								</div>
+							</div>
+
+							<div class="entry-content" style="height: auto !important;">
+								<div class="tt_article_useless_p_margin" style="height: auto !important;"><p><b>배경</b><b></b></p>
+<p>&nbsp; 책 &lt;Machine Learning for Hackers&gt;의 9장을 참고해, MDS(Multi-Dimensional Scaling)로 미 상원의원들의 유사성을 시각적으로 탐색하는 과정을 학습해보았고, <span style="letter-spacing: 0px;">101회부터 110회의 국회 중 약 5회에서 아래와 같이 양극화된 모습을 볼 수 있었다.</span></p>
+<p></p><figure class="imageblock alignCenter" data-filename="b92fbfec-8238-485b-bafe-787bce5c3092.png" data-origin-width="714" data-origin-height="469" data-ke-mobilestyle="widthContent"><span data-url="https://blog.kakaocdn.net/dn/cvyb5d/btq3XbSV6s7/PBq1TtCwYIt3EObn2kOnfk/img.png" data-lightbox="lightbox" data-alt="110회"><img src="./우리나라 국회의원 유사성 시각적 탐색_files/img.png" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fcvyb5d%2Fbtq3XbSV6s7%2FPBq1TtCwYIt3EObn2kOnfk%2Fimg.png" data-filename="b92fbfec-8238-485b-bafe-787bce5c3092.png" data-origin-width="714" data-origin-height="469" data-ke-mobilestyle="widthContent"></span><figcaption>110회</figcaption></figure><p></p>
+<p>그래프들을 보며 우리나라의 경우는 어떨까 하는 생각이 들어, MDS 프로세스를 복습해볼 겸 이번 분석을 진행하게 되었다.</p>
+<p>&nbsp;</p>
+<p><b>데이터</b></p>
+<p>&nbsp; 우리나라 국회 표결 데이터는 <a href="https://open.assembly.go.kr/portal/data/service/selectServicePage.do/OPR1MQ000998LC12535" target="_blank" rel="noopener">열린국회정보 정보공개포털</a>에서 2021년 1월 건만 내려받아 사용하였다.</p>
+<p>&nbsp;</p>
+<p><b>툴</b></p>
+<p>&nbsp; Excel과 R Studio를 사용하였다.</p>
+<p>&nbsp;</p>
+<p><b>패키지</b></p>
+<p>&nbsp; - reshape</p>
+<p>&nbsp; - dplyr</p>
+<p>&nbsp; - ggplot2</p>
+<p>&nbsp;</p>
+<p><b>프로세스 요약</b></p>
+<ul style="list-style-type: circle;" data-ke-list-type="circle">
+<li>의원-의안번호 행렬 생성</li>
+<li>행렬곱(원행렬*전치행렬)</li>
+<li>유클리드 거리 행렬</li>
+<li>MDS 적용</li>
+<li>시각화</li>
+</ul>
+<p><b>상세 프로세스</b></p>
+<ul style="list-style-type: circle;" data-ke-list-type="circle">
+<li>엑셀에서 분석에 필요한 의안번호, 의원, 정당, 표결결과를 제외한 나머지 열들을 모두 제거</li>
+<li>의안번호의 타입을 factor로 변경</li>
+<li>무소속을 포함한 8개의 정당 중 한 명의 당원만 존재하는 '시대전환'과 '기본소득당'을 '무소속'으로 변경<br>* 그래프에 값들을 당으로 구분하여 나타낼 시, 구분할 수 있는 수가 6개가 최대이므로 위와 같이 변경</li>
+<li>정당의 타입을 factor로 변경</li>
+<li>표결결과의 값을 찬성은 1로, 반대는 -1로, 기권은 0으로 변경한 뒤, 표결결과의 타입을 numeric으로 변경</li>
+<li>좌측 데이터의 모양을 cast 함수를 이용하여, 우측과 같이 의원-의안번호 행렬로 변환</li>
+</ul>
+<p></p><figure class="imagegridblock"><div class="image-container"><span data-url="https://blog.kakaocdn.net/dn/H2uVS/btq30FzsUB1/PolmLWKBcJazEnFc3bfpJK/img.png" data-lightbox="lightbox" data-origin-width="0" data-origin-height="0" style="width: 26.1458%; margin-right: 10px;"><img src="./우리나라 국회의원 유사성 시각적 탐색_files/img(1).png" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FH2uVS%2Fbtq30FzsUB1%2FPolmLWKBcJazEnFc3bfpJK%2Fimg.png"></span><span data-url="https://blog.kakaocdn.net/dn/Vn1lI/btq36q88fje/O993K2e4BbJHPKVQ1VhJkK/img.png" data-lightbox="lightbox" data-origin-width="0" data-origin-height="0" style="width: 72.6915%;"><img src="./우리나라 국회의원 유사성 시각적 탐색_files/img(2).png" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FVn1lI%2Fbtq36q88fje%2FO993K2e4BbJHPKVQ1VhJkK%2Fimg.png"></span></div></figure><p></p>
+<ul style="list-style-type: circle;" data-ke-list-type="circle">
+<li>전치행렬을 이용한 행렬곱 -&gt; dist함수 거리 산출 -&gt; cmdscale함수 좌표 추출</li>
+</ul>
+<p></p><figure class="imageblock alignCenter" data-origin-width="0" data-origin-height="0" data-ke-mobilestyle="widthContent"><span data-url="https://blog.kakaocdn.net/dn/snFzi/btq3YUKqW0w/ArwYNjMHn1pBQKqfl12cpK/img.png" data-lightbox="lightbox" data-alt=""><img src="./우리나라 국회의원 유사성 시각적 탐색_files/img(3).png" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FsnFzi%2Fbtq3YUKqW0w%2FArwYNjMHn1pBQKqfl12cpK%2Fimg.png" data-origin-width="0" data-origin-height="0" data-ke-mobilestyle="widthContent"></span></figure><p></p>
+<ul style="list-style-type: circle;" data-ke-list-type="circle">
+<li>시각화 편의를 위한 데이터프레임 생성</li>
+</ul>
+<p></p><figure class="imageblock alignCenter" data-origin-width="0" data-origin-height="0" data-ke-mobilestyle="widthContent"><span data-url="https://blog.kakaocdn.net/dn/DCe4f/btq33asgE9F/yfCMMSun2gnyTVzSxrkX7k/img.png" data-lightbox="lightbox" data-alt=""><img src="./우리나라 국회의원 유사성 시각적 탐색_files/img(4).png" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FDCe4f%2Fbtq33asgE9F%2FyfCMMSun2gnyTVzSxrkX7k%2Fimg.png" data-origin-width="0" data-origin-height="0" data-ke-mobilestyle="widthContent"></span></figure><p></p>
+<ul style="list-style-type: circle;" data-ke-list-type="circle">
+<li>그래프 시각화</li>
+</ul>
+<p>&nbsp;</p>
+<p><b>결과</b></p>
+<p></p><figure class="imagegridblock"><div class="image-container"><span data-url="https://blog.kakaocdn.net/dn/1iDQU/btq309G4JZO/ehKHUVKXR9JnSUHmyOQ8h0/img.png" data-lightbox="lightbox" data-filename="전체.png" data-origin-width="2231" data-origin-height="1465" style="width: 49.4186%; margin-right: 10px;"><img src="./우리나라 국회의원 유사성 시각적 탐색_files/img(5).png" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2F1iDQU%2Fbtq309G4JZO%2FehKHUVKXR9JnSUHmyOQ8h0%2Fimg.png"></span><span data-url="https://blog.kakaocdn.net/dn/lanXV/btq30GrBMWv/V5yoYWVDkT8pkd1Uk95SV1/img.png" data-lightbox="lightbox" data-filename="전체_이름.png" data-origin-width="2231" data-origin-height="1465" style="width: 49.4186%;"><img src="./우리나라 국회의원 유사성 시각적 탐색_files/img(6).png" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FlanXV%2Fbtq30GrBMWv%2FV5yoYWVDkT8pkd1Uk95SV1%2Fimg.png"></span></div></figure><figure class="imagegridblock"><div class="image-container"><span data-url="https://blog.kakaocdn.net/dn/cveiGB/btq36y7cllY/cdLfHihZJS0mTJ9FKSK8a0/img.png" data-lightbox="lightbox" data-filename="더불어민주당.png" data-origin-width="2231" data-origin-height="1465" style="width: 49.4186%; margin-right: 10px;"><img src="./우리나라 국회의원 유사성 시각적 탐색_files/img(7).png" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcveiGB%2Fbtq36y7cllY%2FcdLfHihZJS0mTJ9FKSK8a0%2Fimg.png"></span><span data-url="https://blog.kakaocdn.net/dn/cIpyd3/btq36RZHaNA/pdz3nIlfJcJP1G8dGp1JoK/img.png" data-lightbox="lightbox" data-filename="국민의힘.png" data-origin-width="2231" data-origin-height="1465" style="width: 49.4186%;"><img src="./우리나라 국회의원 유사성 시각적 탐색_files/img(8).png" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcIpyd3%2Fbtq36RZHaNA%2Fpdz3nIlfJcJP1G8dGp1JoK%2Fimg.png"></span></div></figure><figure class="imagegridblock"><div class="image-container"><span data-url="https://blog.kakaocdn.net/dn/ba8VeN/btq3XazLaMS/IsIQ1zGHL3bvcskUo5RUL1/img.png" data-lightbox="lightbox" data-filename="열린민주당.png" data-origin-width="2231" data-origin-height="1465" style="width: 49.4186%; margin-right: 10px;"><img src="./우리나라 국회의원 유사성 시각적 탐색_files/img(9).png" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fba8VeN%2Fbtq3XazLaMS%2FIsIQ1zGHL3bvcskUo5RUL1%2Fimg.png"></span><span data-url="https://blog.kakaocdn.net/dn/bb9Wb9/btq37CgX0Yr/IXUQt2Fmb6xjQsAqvdQXqK/img.png" data-lightbox="lightbox" data-origin-width="2231" data-origin-height="1465" data-filename="정의당.png" style="width: 49.4186%;"><img src="./우리나라 국회의원 유사성 시각적 탐색_files/img(10).png" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fbb9Wb9%2Fbtq37CgX0Yr%2FIXUQt2Fmb6xjQsAqvdQXqK%2Fimg.png"></span></div></figure><figure class="imagegridblock"><div class="image-container"><span data-url="https://blog.kakaocdn.net/dn/W5eY7/btq3YTEMH2F/wqYk7A41rElcreAV9hTkuk/img.png" data-lightbox="lightbox" data-filename="국민의당.png" data-origin-width="2231" data-origin-height="1465" style="width: 49.4186%; margin-right: 10px;"><img src="./우리나라 국회의원 유사성 시각적 탐색_files/img(11).png" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FW5eY7%2Fbtq3YTEMH2F%2FwqYk7A41rElcreAV9hTkuk%2Fimg.png"></span><span data-url="https://blog.kakaocdn.net/dn/FABmD/btq36qH1k3b/RYEEC5Kg70K0kXuFLk3hZk/img.png" data-lightbox="lightbox" data-filename="무소속.png" data-origin-width="2231" data-origin-height="1465" style="width: 49.4186%;"><img src="./우리나라 국회의원 유사성 시각적 탐색_files/img(12).png" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FFABmD%2Fbtq36qH1k3b%2FRYEEC5Kg70K0kXuFLk3hZk%2Fimg.png"></span></div></figure><p></p>
+<p>&nbsp;</p>
+<p><b>결론</b></p>
+<p>&nbsp; 이번 분석에 적용된 데이터는 여러 문제를 포함하고 있으며, 위의 도출된 MDS 그래프는 유의한 인사이트를 도출하기엔 부적합한 것으로 보인다.</p>
+<p>&nbsp;</p>
+<p>1. 다른 의원들과의 유사성이 상당히 적어 보이는 이수진 의원의 데이터를 들여다보니, 더불어 민주당 내에 동명의 이수진 의원이 한 명 더 존재한다는 것을 알 수 있었다(이수진 의원뿐만 아니라, 다른 이름도 존재할 것으로 보인다).</p>
+<p>2. 의안 별로 표결에 참여한 의원의 수가 다르다.</p>
+<p>&nbsp;</p>
+<p>우선 결과에 가장 관련된 문제는 위 두 가지라고 생각한다. 데이터셋을 가공하여 위의 두 문제를 해결한 뒤, 동일 프로세스를 적용하게 되면 다른 모습의 그래프가 도출될 것으로 보인다. 하지만 이번 분석에선 MDS에 적합한 데이터의 형태와 프로세스를 직접 경험해봤다는 것에 만족하고, 추후 다른 주제를 통해 MDS를 사용해볼까 한다.</p>            <div class="revenue_unit_wrap ">
+               <div class="revenue_unit_item adsense  responsive">
+                    <div class="revenue_unit_info">반응형</div>
+                    <script async="" src="./우리나라 국회의원 유사성 시각적 탐색_files/f(6).txt"></script>
+                    <ins class="adsbygoogle" style="display: block; height: 280px;" data-ad-host="ca-host-pub-9691043933427338" data-ad-client="ca-pub-3645328017045656" data-ad-format="auto" data-adsbygoogle-status="done" data-overlap-observer-io="false"><ins id="aswift_1_expand" style="display:inline-table;border:none;height:280px;margin:0;padding:0;position:relative;visibility:visible;width:740px;background-color:transparent;" tabindex="0" title="Advertisement" aria-label="Advertisement"><ins id="aswift_1_anchor" style="display: block; border: none; height: 280px; margin: 0px; padding: 0px; position: relative; visibility: visible; width: 740px; background-color: transparent; overflow: visible;"><iframe id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;border:0;width:740px;height:280px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="740" height="280" frameborder="0" src="./우리나라 국회의원 유사성 시각적 탐색_files/ads.html" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" allow="conversion-measurement &#39;src&#39;" data-google-container-id="a!2" data-google-query-id="CO3xx6iWsPACFQ1BvAod778EQw" data-load-complete="true"></iframe></ins></ins></ins>
+                    <script>(adsbygoogle = window.adsbygoogle || []).push({}); </script>
+               </div>
+            </div><div class="container_postbtn #post_button_group">
+    <div class="postbtn_like">
+        
+<script>
+    window.ReactionButtonType = 'reaction';
+    window.ReactionApiUrl = '//yrohh.tistory.com/reaction';
+    window.ReactionReqBody = {
+        entryId: 210    }
+</script>
+<div class="wrap_btn" id="reaction-210"><button class="btn_post uoc-icon"><div class="uoc-icon"><span class="ico_postbtn ico_like">좋아요</span><span class="txt_like uoc-count">공감</span></div></button></div>
+<script src="./우리나라 국회의원 유사성 시각적 탐색_files/reaction-button-container.min.js.다운로드"></script>
+        <div class="wrap_btn wrap_btn_share">
+    <button type="button" class="btn_post sns_btn btn_share" data-thumbnail-url="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FXiY77%2Fbtq4bmGqT68%2F7Vk05RHia9Vn8UsCJzxBXk%2Fimg.png" data-title="우리나라 국회의원 유사성 시각적 탐색" data-description="배경 책 의 9장을 참고해, MDS(Multi-Dimensional Scaling)로 미 상원의원들의 유사성을 시각적으로 탐색하는 과정을 학습해보았고, 101회부터 110회의 국회 중 약 5회에서 아래와 같이 양극화된 모습을 볼 수 있.." data-profile-image="https://tistory3.daumcdn.net/tistory/4034028/attach/1e7b73dedf144f5f8f10a45788d7290f" data-profile-name="yrohh_" data-pc-url="https://yrohh.tistory.com/210" data-relative-pc-url="/210" data-blog-title=":)">
+        <span class="ico_postbtn ico_share">공유하기</span>
+    </button>
+</div>
+        <div class="wrap_btn">
+    <button type="button" class="btn_post" data-entry-id="210">
+        <span class="ico_postbtn ico_statistics">통계</span>
+    </button>
+</div>
+        <div class="wrap_btn wrap_btn_etc" data-entry-id="210" data-entry-visibility="public" data-category-visibility="public">
+    <button type="button" class="btn_post btn_etc1"><span class="ico_postbtn ico_etc">글 요소</span></button>
+</div>
+    </div>
+        <div class="postbtn_ccl" data-ccl-type="3">
+    <a href="https://creativecommons.org/licenses/by/4.0/deed.ko" target="_blank" class="link_ccl">
+        <span class="bundle_ccl">
+            <span class="ico_postbtn ico_ccl1">저작자표시</span>        </span>
+    </a>
+</div>
+    <!--
+<rdf:RDF xmlns="http://web.resource.org/cc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <Work rdf:about="">
+        <license rdf:resource="http://creativecommons.org/licenses/by-fr/2.0/kr/" />
+    </Work>
+    <License rdf:about="http://creativecommons.org/licenses/by-fr/">
+        <permits rdf:resource="http://web.resource.org/cc/Reproduction"/>
+        <permits rdf:resource="http://web.resource.org/cc/Distribution"/>
+        <requires rdf:resource="http://web.resource.org/cc/Notice"/>
+        <requires rdf:resource="http://web.resource.org/cc/Attribution"/>
+                <permits rdf:resource="http://web.resource.org/cc/DerivativeWorks"/>
+                    </License>
+</rdf:RDF>
+-->
+</div><div class="another_category another_category_color_gray">
+<h4>'<a href="https://yrohh.tistory.com/category/%EA%B6%81%EA%B8%88%ED%95%98%EB%8B%88%EA%B9%90">궁금하니깐</a>' 카테고리의 다른 글</h4>
+<table>
+<tbody><tr>
+<th>
+<a href="https://yrohh.tistory.com/210?category=894907" class="current">우리나라 국회의원 유사성 시각적 탐색</a>&nbsp;&nbsp;<span>(0)</span>
+</th>
+<td>
+20:59:46</td>
+</tr>
+</tbody></table></div></div>
+							</div>
+
+							
+
+							
+
+							<div class="comments">
+									<h2>댓글<span class="count"><span id="commentCount210_0">0</span></span></h2>
+									<div id="entry210Comment">
+										
+
+										<form method="post" action="https://yrohh.tistory.com/comment/add/210" onsubmit="return false" style="margin: 0">
+											<div class="comment-form">
+												
+												<textarea name="comment" cols="" rows="4" placeholder="여러분의 소중한 댓글을 입력해주세요."></textarea>
+												<div class="submit">
+													<button type="submit" class="btn" onclick="addComment(this, 210); return false;">등록</button>
+												</div>
+											</div>
+										</form>
+								</div><script type="text/javascript">loadedComments[210]=true;findFragmentAndHighlight(210)</script>
+							</div>
+						
+
+					
+
+				</div>
+
+				
+
+				
+
+				
+					<div class="pagination">
+						<a href="https://yrohh.tistory.com/211" class="prev ">이전</a>
+						
+							<a href="https://yrohh.tistory.com/211"><span>1</span></a>
+						
+							<a><span class="selected">2</span></a>
+						
+							<a href="https://yrohh.tistory.com/209"><span>3</span></a>
+						
+							<a href="https://yrohh.tistory.com/208"><span>4</span></a>
+						
+							<a href="https://yrohh.tistory.com/207"><span>5</span></a>
+						
+							<a href="https://yrohh.tistory.com/206"><span>6</span></a>
+						
+							<a><span>···</span></a>
+						
+							<a href="https://yrohh.tistory.com/3"><span>191</span></a>
+						
+						<a href="https://yrohh.tistory.com/209" class="next ">다음</a>
+					</div>
+				
+
+				
+
+			</article>
+			<aside id="aside" class="sidebar" style="height: auto !important;">
+					<div class="sidebar-1" style="height: auto !important;">
+						                        <div class="revenue_unit_wrap ">
+               <div class="revenue_unit_item adsense  responsive">
+                    <div class="revenue_unit_info">반응형</div>
+                    <script async="" src="./우리나라 국회의원 유사성 시각적 탐색_files/f(6).txt"></script>
+                    <ins class="adsbygoogle" style="display: block; height: 600px;" data-ad-host="ca-host-pub-9691043933427338" data-ad-client="ca-pub-3645328017045656" data-ad-format="auto" data-adsbygoogle-status="done" data-overlap-observer-io="false"><ins id="aswift_2_expand" style="display:inline-table;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:230px;background-color:transparent;" tabindex="0" title="Advertisement" aria-label="Advertisement"><ins id="aswift_2_anchor" style="display: block; border: none; height: 600px; margin: 0px; padding: 0px; position: relative; visibility: visible; width: 230px; background-color: transparent; overflow: visible;"><iframe id="aswift_2" name="aswift_2" style="left:0;position:absolute;top:0;border:0;width:230px;height:600px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="230" height="600" frameborder="0" src="./우리나라 국회의원 유사성 시각적 탐색_files/ads(1).html" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" allow="conversion-measurement &#39;src&#39;" data-google-container-id="a!3" data-google-query-id="CLG2sqiWsPACFc8KXAodPg8AZA" data-load-complete="true"></iframe></ins></ins></ins>
+                    <script>(adsbygoogle = window.adsbygoogle || []).push({}); </script>
+               </div>
+            </div>
+								<!-- 카테고리 -->
+								<nav class="category">
+									<ul class="tt_category">
+	<li class="">
+		<a class="link_tit" href="https://yrohh.tistory.com/category">
+			분류 전체보기			
+							<img src="./우리나라 국회의원 유사성 시각적 탐색_files/new_ico_5.gif">
+					</a>
+
+				<ul class="category_list">
+							<li class="">
+					<a class="link_item" href="https://yrohh.tistory.com/category/%EC%9D%BC%EC%83%81">
+						일상						
+											</a>
+
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="https://yrohh.tistory.com/category/%EC%B1%85">
+						책						
+											</a>
+
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="https://yrohh.tistory.com/category/%EC%98%81%EC%96%B4">
+						영어						
+													<img src="./우리나라 국회의원 유사성 시각적 탐색_files/new_ico_5.gif">
+											</a>
+
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="https://yrohh.tistory.com/category/%EA%B6%81%EA%B8%88%ED%95%98%EB%8B%88%EA%B9%90">
+						궁금하니깐						
+													<img src="./우리나라 국회의원 유사성 시각적 탐색_files/new_ico_5.gif">
+											</a>
+
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="https://yrohh.tistory.com/category/%EB%98%90%EB%8B%A5%EB%98%90%EB%8B%A5">
+						또닥또닥						
+											</a>
+
+										<ul class="sub_category_list">
+													<li class="">
+								<a class="link_sub_item" href="https://yrohh.tistory.com/category/%EB%98%90%EB%8B%A5%EB%98%90%EB%8B%A5/python">
+									python
+									
+																	</a>
+							</li>
+													<li class="">
+								<a class="link_sub_item" href="https://yrohh.tistory.com/category/%EB%98%90%EB%8B%A5%EB%98%90%EB%8B%A5/R">
+									R
+									
+																	</a>
+							</li>
+													<li class="">
+								<a class="link_sub_item" href="https://yrohh.tistory.com/category/%EB%98%90%EB%8B%A5%EB%98%90%EB%8B%A5/linux%28ubuntu%29">
+									linux(ubuntu)
+									
+																	</a>
+							</li>
+													<li class="">
+								<a class="link_sub_item" href="https://yrohh.tistory.com/category/%EB%98%90%EB%8B%A5%EB%98%90%EB%8B%A5/sqld">
+									sqld
+									
+																	</a>
+							</li>
+													<li class="">
+								<a class="link_sub_item" href="https://yrohh.tistory.com/category/%EB%98%90%EB%8B%A5%EB%98%90%EB%8B%A5/adsp">
+									adsp
+									
+																	</a>
+							</li>
+													<li class="">
+								<a class="link_sub_item" href="https://yrohh.tistory.com/category/%EB%98%90%EB%8B%A5%EB%98%90%EB%8B%A5/Google">
+									Google
+									
+																	</a>
+							</li>
+													<li class="">
+								<a class="link_sub_item" href="https://yrohh.tistory.com/category/%EB%98%90%EB%8B%A5%EB%98%90%EB%8B%A5/QGIS">
+									QGIS
+									
+																	</a>
+							</li>
+											</ul>
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="https://yrohh.tistory.com/category/%EA%B3%B5%EA%B3%B5%20%EB%B9%85%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EC%B2%AD%EB%85%84%20%EC%9D%B8%ED%84%B4%EC%8B%AD">
+						공공 빅데이터 청년 인턴십						
+											</a>
+
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="https://yrohh.tistory.com/category/%EC%B7%A8%EC%A4%80%28%EB%B9%84%EA%B3%B5%EA%B0%9C%29">
+						취준(비공개)						
+											</a>
+
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="https://yrohh.tistory.com/category/%EB%AF%B8%EB%8B%88%EB%AF%B8%EB%8B%88%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%28%EB%B9%84%EA%B3%B5%EA%B0%9C%29">
+						미니미니프로젝트(비공개)						
+											</a>
+
+					
+				</li>
+					</ul>
+			</li>
+</ul>
+								</nav>
+							
+					</div>
+					<div class="sidebar-2">
+						
+								<!-- 공지사항 -->
+								
+									<div class="notice">
+										<h2>공지사항</h2>
+										<ul>
+											
+										</ul>
+									</div>
+								
+							
+								<!-- 최근글/인기글 -->
+								<div class="post-list tab-ui"><h2><a href="https://yrohh.tistory.com/210#recent" class="current">최근글</a><a href="https://yrohh.tistory.com/210#popular">인기글</a></h2>
+									<div id="recent" class="tab-list" style="display: block;">
+										
+										<ul>
+											
+												<li>
+													<a href="https://yrohh.tistory.com/211">
+														
+															<img src="./우리나라 국회의원 유사성 시각적 탐색_files/saved_resource" alt="">
+														
+														<span class="title">UNIT.10(21) Randy Pausch⋯</span>
+														<span class="date">2021.05.04</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="https://yrohh.tistory.com/210">
+														
+															<img src="./우리나라 국회의원 유사성 시각적 탐색_files/saved_resource(1)" alt="">
+														
+														<span class="title">우리나라 국회의원 유사성⋯</span>
+														<span class="date">2021.05.04</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="https://yrohh.tistory.com/209">
+														
+															<img src="./우리나라 국회의원 유사성 시각적 탐색_files/saved_resource(2)" alt="">
+														
+														<span class="title">UNIT.09(20) Larry Page :⋯</span>
+														<span class="date">2021.04.29</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="https://yrohh.tistory.com/208">
+														
+															<img src="./우리나라 국회의원 유사성 시각적 탐색_files/saved_resource(3)" alt="">
+														
+														<span class="title">밖에 비 온다.</span>
+														<span class="date">2021.04.28</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="https://yrohh.tistory.com/207">
+														
+															<img src="./우리나라 국회의원 유사성 시각적 탐색_files/saved_resource(4)" alt="">
+														
+														<span class="title">UNIT.08(19) Oprah Winfre⋯</span>
+														<span class="date">2021.04.28</span>
+													</a>
+												</li>
+											
+										</ul>
+									</div>
+									<div id="popular" class="tab-list" style="display: none;">
+										
+										<ul>
+											
+												<li>
+													<a href="https://yrohh.tistory.com/168">
+														
+															<img src="./우리나라 국회의원 유사성 시각적 탐색_files/saved_resource(5)" alt="">
+														
+														<span class="title">크롤링 독학 3장 with &lt;파⋯</span>
+														<span class="date">2021.03.15</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="https://yrohh.tistory.com/162">
+														
+															<img src="./우리나라 국회의원 유사성 시각적 탐색_files/saved_resource(6)" alt="">
+														
+														<span class="title">UNIT.06 Friendship</span>
+														<span class="date">2021.03.06</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="https://yrohh.tistory.com/193">
+														
+															<img src="./우리나라 국회의원 유사성 시각적 탐색_files/saved_resource(7)" alt="">
+														
+														<span class="title">4월 운동🏃</span>
+														<span class="date">2021.04.06</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="https://yrohh.tistory.com/160">
+														
+															<img src="./우리나라 국회의원 유사성 시각적 탐색_files/saved_resource(8)" alt="">
+														
+														<span class="title">UNIT.05 Family</span>
+														<span class="date">2021.03.04</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="https://yrohh.tistory.com/166">
+														
+															<img src="./우리나라 국회의원 유사성 시각적 탐색_files/saved_resource(9)" alt="">
+														
+														<span class="title">UNIT.08 Going to Concert</span>
+														<span class="date">2021.03.15</span>
+													</a>
+												</li>
+											
+										</ul>
+									</div>
+								</div>
+							
+								
+							
+								<!-- Facebook/Twitter -->
+								<div class="social-list tab-ui">
+									
+									
+								</div>
+							
+						
+								<!-- 태그 -->
+							
+								<!-- 전체 방문자 -->
+								<div class="count">
+									<h2>전체 방문자</h2>
+									<p class="total">2,968</p>
+									<p>Today : 15</p>
+									<p>Yesterday : 15</p>
+								</div>
+							
+								<!-- 소셜 채널 -->
+								<div class="social-channel">
+									<ul>
+										
+										
+										
+										
+									</ul>
+								</div>
+							
+					</div>
+				</aside>
+		</div>
+	</section>
+	<hr>
+	<footer id="footer">
+		<div class="inner">
+			<div class="order-menu">
+				
+				
+				
+				
+			</div>
+			<a href="https://yrohh.tistory.com/210#" class="page-top">TOP</a>
+			<p class="meta"></p>
+			<p class="copyright"></p>
+		</div>
+	</footer>
+</div><ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none !important;"><ins id="aswift_0_expand" style="display:inline-table;border:none;height:0px;margin:0;padding:0;position:relative;visibility:visible;width:0px;background-color:transparent;" tabindex="0" title="Advertisement" aria-label="Advertisement"><ins id="aswift_0_anchor" style="display:block;border:none;height:0px;margin:0;padding:0;position:relative;visibility:visible;width:0px;background-color:transparent;"><iframe id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefinedpx;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" frameborder="0" src="./우리나라 국회의원 유사성 시각적 탐색_files/ads(2).html" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" allow="conversion-measurement &#39;src&#39;" data-google-container-id="a!1" data-load-complete="true"></iframe></ins></ins></ins>
+
+<script src="./우리나라 국회의원 유사성 시각적 탐색_files/script.js.다운로드"></script>
+<script>
+$('img[alt="N"]').each(function(){
+    $(this).replaceWith('<img src="https://tistory2.daumcdn.net/tistory/4034028/skin/images/new_ico_5.gif">');
+});
+</script>
+<link rel="stylesheet" href="./우리나라 국회의원 유사성 시각적 탐색_files/github.min.css">
+<script src="./우리나라 국회의원 유사성 시각적 탐색_files/highlight.min.js.다운로드"></script>
+<script src="./우리나라 국회의원 유사성 시각적 탐색_files/kotlin.min.js.다운로드"></script>
+<script src="./우리나라 국회의원 유사성 시각적 탐색_files/swift.min.js.다운로드"></script>
+<script src="./우리나라 국회의원 유사성 시각적 탐색_files/go.min.js.다운로드"></script>
+<script src="./우리나라 국회의원 유사성 시각적 탐색_files/scala.min.js.다운로드"></script>
+<script src="./우리나라 국회의원 유사성 시각적 탐색_files/r.min.js.다운로드"></script>
+<script>hljs.initHighlightingOnLoad();</script><script src="./우리나라 국회의원 유사성 시각적 탐색_files/search_dragselection.min.js.다운로드"></script>
+<script>
+    (function($) {
+        $("body").bind('copy', function (e) {
+
+            var url = document.location.href,
+                decodedUrl = decodeURI(url),
+                selection = window.getSelection();
+
+
+            if (typeof window.getSelection == "undefined") {//IE8 or earlier...
+                event.preventDefault();
+
+                var pagelink = '\n\n 출처: ' + decodedUrl,
+                    copytext = selection + pagelink;
+
+                if (window.clipboardData) {
+                    window.clipboardData.setData('Text', copytext);
+                }
+                return;
+            }
+            var body_element = document.getElementsByTagName('body')[0];
+
+            //if the selection is short let's not annoy our users
+            if (("" + selection).length < 30) return;
+
+            //create a div outside of the visible area
+            var newdiv = document.createElement('div');
+            newdiv.style.position = 'absolute';
+            newdiv.style.left = '-99999px';
+            body_element.appendChild(newdiv);
+            newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+            //we need a <pre> tag workaround
+            //otherwise the text inside "pre" loses all the line breaks!
+            if (selection.getRangeAt(0).commonAncestorContainer.nodeName == "PRE") {
+                newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+            }
+
+            newdiv.innerHTML += '<br /><br />출처: <a href="' + url + '">' + escapeHTML(decodedUrl) + '</a> [:)]';
+
+            selection.selectAllChildren(newdiv);
+
+            window.setTimeout(function () {
+                body_element.removeChild(newdiv);
+            }, 200);
+        });
+    })(tjQuery);
+</script>
+	<script>
+	    lightbox.option({
+			"fadeDuration": 200,
+		    "resizeDuration": 200,
+		    "wrapAround": false,
+			"albumLabel": "%1 / %2",
+			"fitImagesInViewport":true ,
+			"stopEvent": false
+	    })
+	</script>            <script type="text/javascript" src="./우리나라 국회의원 유사성 시각적 탐색_files/tiara.min.js.다운로드"></script>
+            <script type="text/javascript">window.tiara = {"svcDomain":"user.tistory.com","section":"\uae00\ubdf0","trackPage":"\uae00\ubdf0_\ubcf4\uae30","page":"\uae00\ubdf0","key":"4034028-210","customProps":{"userId":"4451914","blogId":"4034028","role":"owner","filterTarget":false,"trackPage":"\uae00\ubdf0_\ubcf4\uae30","entryId":"210"},"entry":{"entryId":"210","categoryName":"\uad81\uae08\ud558\ub2c8\uae50","categoryId":"894907","author":"4451914","authorId":"4451914","image":"4451914","plink":"\/210","tags":[],"key":"4034028-210"},"sentryDsn":"https:\/\/a53520229cd744e798d42900d76b0e2a@aem-collector.daumkakao.io\/713","kakaoAppKey":"b8aef3eeb03fa312b81795386484f051","appUserId":"1521458512"};</script>
+            <script type="text/javascript" src="./우리나라 국회의원 유사성 시각적 탐색_files/tiara.min.js(1).다운로드" defer=""></script>
+                        <script type="text/javascript">
+                window.roosevelt_params_queue = window.roosevelt_params_queue || [{channel_id: 'dk', channel_label: 'tistory'}];
+            </script>
+            <script type="text/javascript" src="./우리나라 국회의원 유사성 시각적 탐색_files/roosevelt_dk_bt.js.다운로드" async=""></script><script type="text/javascript">if(window.console!=undefined){setTimeout(console.log.bind(console,"%cTISTORY","font:8em Arial;color:#EC6521;font-weight:bold"),0);setTimeout(console.log.bind(console,"%c  나를 표현하는 블로그","font:2em sans-serif;color:#333;"),0);}</script><iframe style="position:absolute;width:1px;height:1px;left:-100px;top:-100px" src="./우리나라 국회의원 유사성 시각적 탐색_files/api.html" id="editEntry"></iframe><div id="tistoryEtcLayer" class="layer_post" style="display: none;"></div><div id="tistorySnsLayer" class="layer_post" style="display: none;"><div class="bundle_post"><a href="https://yrohh.tistory.com/210#none" class="btn_mark" data-service="facebook"><span class="ico_sns ico_fb"></span>페이스북으로 공유</a><a href="https://yrohh.tistory.com/210#none" class="btn_mark" data-service="kakaotalk"><span class="ico_sns ico_kt"></span>카카오톡으로 공유</a><a href="https://yrohh.tistory.com/210#none" class="btn_mark" data-service="kakaostory"><span class="ico_sns ico_ks"></span>카카오스토리로 공유</a><a href="https://yrohh.tistory.com/210#none" class="btn_mark" data-service="twitter"><span class="ico_sns ico_tw"></span>트위터로 공유</a><a href="https://yrohh.tistory.com/210#none" class="btn_mark" data-service="url"><span class="ico_sns ico_url"></span>URL 복사</a><span class="ico_postbtn ico_arrbt"></span></div></div>
+<div id="lightboxOverlay" class="lightboxOverlay" style="display: none;"></div><div id="lightbox" class="lightbox" style="display: none;"><div class="lb-outerContainer"><div class="lb-container"><img class="lb-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="><div class="lb-nav"><a class="lb-prev" href="https://yrohh.tistory.com/210"></a><a class="lb-next" href="https://yrohh.tistory.com/210"></a></div><div class="lb-loader"><a class="lb-cancel"></a></div></div></div><div class="lb-dataContainer"><div class="lb-data"><div class="lb-details"><span class="lb-caption"></span><span class="lb-number"></span></div><div class="lb-closeContainer"><a class="lb-close"></a></div></div></div></div></body><iframe id="google_esf" name="google_esf" src="./우리나라 국회의원 유사성 시각적 탐색_files/zrt_lookup.html" data-ad-client="ca-pub-3645328017045656" style="display: none;"></iframe></html>
