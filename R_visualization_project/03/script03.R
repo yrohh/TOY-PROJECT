@@ -1,22 +1,22 @@
-### title : À¯¹«ÀÓ ½ÂÇÏÂ÷ ºñÀ² ÆÄÀÌ Â÷Æ® ½Ã°¢È­.
+### title : ìœ ë¬´ì„ ìŠ¹í•˜ì°¨ ë¹„ìœ¨ íŒŒì´ ì°¨íŠ¸ ì‹œê°í™”.
 ### email : ynjoon@naver.com
 # --------------------------------------------------------------------------------------------
 
-### µ¥ÀÌÅÍ ·Îµå.
-setwd("C:\\Users\\yoonjun\\Desktop\\jun\\4_1\\R_programming_visualization\\°úÁ¦\\±â¸»°úÁ¦\\03")
+### ë°ì´í„° ë¡œë“œ.
+setwd("ë°ì´í„° ë””ë ‰í† ë¦¬")
 data <- read.csv('data03.csv', stringsAsFactors = F)
 head(data)
 str(data)
 
 
 
-### À¯¹«ÀÓ ½ÂÇÏÂ÷ ÀÎ¿ø °¡Àå ¸¹Àº ¿ª µµÃâ.
-max_total <- sapply(data[2:5], max) # À¯¹«ÀÓ ½ÂÇÏÂ÷ ÃÖ´ë°ª µµÃâ.
+### ìœ ë¬´ì„ ìŠ¹í•˜ì°¨ ì¸ì› ê°€ì¥ ë§ì€ ì—­ ë„ì¶œ.
+max_total <- sapply(data[2:5], max) # ìœ ë¬´ì„ ìŠ¹í•˜ì°¨ ìµœëŒ€ê°’ ë„ì¶œ.
 
-max_in_p <- data[which(data[,2]==max_total[1]),1] # ÃÖ´ë À¯ÀÓ½ÂÂ÷¿ª.
-max_out_p <- data[which(data[,3]==max_total[2]),1] # ÃÖ´ë À¯ÀÓ½ÂÂ÷¿ª.
-max_in_f <- data[which(data[,4]==max_total[3]),1] # ÃÖ´ë À¯ÀÓ½ÂÂ÷¿ª.
-max_out_f <- data[which(data[,5]==max_total[4]),1] # ÃÖ´ë À¯ÀÓ½ÂÂ÷¿ª.
+max_in_p <- data[which(data[,2]==max_total[1]),1] # ìµœëŒ€ ìœ ì„ìŠ¹ì°¨ì—­.
+max_out_p <- data[which(data[,3]==max_total[2]),1] # ìµœëŒ€ ìœ ì„ìŠ¹ì°¨ì—­.
+max_in_f <- data[which(data[,4]==max_total[3]),1] # ìµœëŒ€ ìœ ì„ìŠ¹ì°¨ì—­.
+max_out_f <- data[which(data[,5]==max_total[4]),1] # ìµœëŒ€ ìœ ì„ìŠ¹ì°¨ì—­.
 
 max_total
 max_in_p
@@ -25,59 +25,59 @@ max_in_f
 max_out_f
 subname <- c()
 subname <- c(subname, max_in_p, max_out_p, max_in_f, max_out_f)
-subname # À¯ÀÓ½ÂÂ÷, À¯ÀÓÇÏÂ÷, ¹«ÀÓ½ÂÂ÷, ¹«ÀÓÇÏÂ÷ ¼øÀ¸·Î ¿ª¸í º¤ÅÍ »ı¼º.
+subname # ìœ ì„ìŠ¹ì°¨, ìœ ì„í•˜ì°¨, ë¬´ì„ìŠ¹ì°¨, ë¬´ì„í•˜ì°¨ ìˆœìœ¼ë¡œ ì—­ëª… ë²¡í„° ìƒì„±.
 
-for (i in c(1:4)){ # ÃÖ´Ù À¯¹«ÀÓ ½ÂÇÏÂ÷¿ª È®ÀÎ.
+for (i in c(1:4)){ # ìµœë‹¤ ìœ ë¬´ì„ ìŠ¹í•˜ì°¨ì—­ í™•ì¸.
   print(paste(names(max_total)[i], ':', subname[i], max_total[[i]]))
 }
 
 
 
-### È«´ëÀÔ±¸ 2È£¼± À¯¹«ÀÓ ½ÂÇÏÂ÷ ºñÀ² ½Ã°¢È­.
+### í™ëŒ€ì…êµ¬ 2í˜¸ì„  ìœ ë¬´ì„ ìŠ¹í•˜ì°¨ ë¹„ìœ¨ ì‹œê°í™”.
 library(ggplot2)
-library(extrafont) # ³ª´®°íµñ ÆùÆ® »ç¿ë.
+library(extrafont) # ë‚˜ëˆ”ê³ ë”• í°íŠ¸ ì‚¬ìš©.
 fonts()
 fonttable()
 
-hong <- data[which(data[1]=='È«´ëÀÔ±¸ 2È£¼±'),2:5]
-hong_value <- as.numeric(hong) # º¤ÅÍÈ­.
+hong <- data[which(data[1]=='í™ëŒ€ì…êµ¬ 2í˜¸ì„ '),2:5]
+hong_value <- as.numeric(hong) # ë²¡í„°í™”.
 hong_group <- names(hong)
 df_hong <- data.frame(hong_value, hong_group)
-df_hong <- transform(df_hong, hong_group = factor(hong_group, levels=c('À¯ÀÓ½ÂÂ÷', 'À¯ÀÓÇÏÂ÷', '¹«ÀÓ½ÂÂ÷', '¹«ÀÓÇÏÂ÷'))) # ÆÄÀÌ Â÷Æ® ¹ü·Ê ¸ñ·Ï ÆíÁı À§ÇÔ.
+df_hong <- transform(df_hong, hong_group = factor(hong_group, levels=c('ìœ ì„ìŠ¹ì°¨', 'ìœ ì„í•˜ì°¨', 'ë¬´ì„ìŠ¹ì°¨', 'ë¬´ì„í•˜ì°¨'))) # íŒŒì´ ì°¨íŠ¸ ë²”ë¡€ ëª©ë¡ í¸ì§‘ ìœ„í•¨.
 
-mycols <- c("#14CCC0", "#389993", "#FF1C6A", "#CC14AF") # ÆÄÀÌ Â÷Æ® »ö ÆÄ·¹Æ® ÁöÁ¤.
+mycols <- c("#14CCC0", "#389993", "#FF1C6A", "#CC14AF") # íŒŒì´ ì°¨íŠ¸ ìƒ‰ íŒŒë ˆíŠ¸ ì§€ì •.
 
 ggplot(df_hong, aes(x="", y=hong_value, fill=hong_group)) +
-  theme_void() + # ¹Ù±ù¼± Á¦°Å.
-  ggtitle('È«´ëÀÔ±¸ 2È£¼± À¯¹«ÀÓ ½ÂÇÏÂ÷ ºñÀ²') + 
+  theme_void() + # ë°”ê¹¥ì„  ì œê±°.
+  ggtitle('í™ëŒ€ì…êµ¬ 2í˜¸ì„  ìœ ë¬´ì„ ìŠ¹í•˜ì°¨ ë¹„ìœ¨') + 
   theme(plot.title = element_text(family = "NanumGothic", face = "bold", hjust = 0.5, size = 13)) +
-  labs(x="", y="") + # Ãà ÀÌ¸§ Á¦°Å.
+  labs(x="", y="") + # ì¶• ì´ë¦„ ì œê±°.
   geom_bar(stat="identity", width=1) +
-  coord_polar("y", start=90) + # ÆÄÀÌ Â÷Æ® ¸ğ¾çÀ¸·Î º¯È¯, ½ÃÀÛ°¢ 90µµ.
+  coord_polar("y", start=90) + # íŒŒì´ ì°¨íŠ¸ ëª¨ì–‘ìœ¼ë¡œ ë³€í™˜, ì‹œì‘ê° 90ë„.
   theme(legend.title=element_blank(), legend.text = element_text(size = 12)) +
   geom_text(aes(label=paste0(round(hong_value/sum(hong_value)*100,0),"%")), family = "NanumGothic",size=5, position=position_stack((vjust=0.5))) +
-  scale_fill_manual(values = mycols) # ÆÄÀÌ Â÷Æ® »ö ÁöÁ¤.
+  scale_fill_manual(values = mycols) # íŒŒì´ ì°¨íŠ¸ ìƒ‰ ì§€ì •.
 
 
 
 
 
-### Á¾·Î3°¡ 1È£¼± À¯¹«ÀÓ ½ÂÇÏÂ÷ ºñÀ² ½Ã°¢È­.
-jong <- data[which(data[1]=='Á¾·Î3°¡ 1È£¼±'),2:5]
-jong_value <- as.numeric(jong) # º¤ÅÍÈ­.
+### ì¢…ë¡œ3ê°€ 1í˜¸ì„  ìœ ë¬´ì„ ìŠ¹í•˜ì°¨ ë¹„ìœ¨ ì‹œê°í™”.
+jong <- data[which(data[1]=='ì¢…ë¡œ3ê°€ 1í˜¸ì„ '),2:5]
+jong_value <- as.numeric(jong) # ë²¡í„°í™”.
 jong_group <- names(jong)
 df_jong <- data.frame(jong_value, jong_group)
-df_jong <- transform(df_jong, jong_group = factor(jong_group, levels=c('À¯ÀÓ½ÂÂ÷', 'À¯ÀÓÇÏÂ÷', '¹«ÀÓ½ÂÂ÷', '¹«ÀÓÇÏÂ÷'))) # ÆÄÀÌ Â÷Æ® ¹ü·Ê ¸ñ·Ï ÆíÁı À§ÇÔ.
+df_jong <- transform(df_jong, jong_group = factor(jong_group, levels=c('ìœ ì„ìŠ¹ì°¨', 'ìœ ì„í•˜ì°¨', 'ë¬´ì„ìŠ¹ì°¨', 'ë¬´ì„í•˜ì°¨'))) # íŒŒì´ ì°¨íŠ¸ ë²”ë¡€ ëª©ë¡ í¸ì§‘ ìœ„í•¨.
 
-mycols <- c("#14CCC0", "#389993", "#FF1C6A", "#CC14AF") # ÆÄÀÌ Â÷Æ® »ö ÆÄ·¹Æ® ÁöÁ¤.
+mycols <- c("#14CCC0", "#389993", "#FF1C6A", "#CC14AF") # íŒŒì´ ì°¨íŠ¸ ìƒ‰ íŒŒë ˆíŠ¸ ì§€ì •.
 
 ggplot(df_jong, aes(x="", y=jong_value, fill=jong_group)) +
-  theme_void() + # ¹Ù±ù¼± Á¦°Å.
-  ggtitle('Á¾·Î3°¡ 1È£¼± À¯¹«ÀÓ ½ÂÇÏÂ÷ ºñÀ²') + 
+  theme_void() + # ë°”ê¹¥ì„  ì œê±°.
+  ggtitle('ì¢…ë¡œ3ê°€ 1í˜¸ì„  ìœ ë¬´ì„ ìŠ¹í•˜ì°¨ ë¹„ìœ¨') + 
   theme(plot.title = element_text(family = "NanumGothic", face = "bold", hjust = 0.5, size = 13)) +
-  labs(x="", y="") + # Ãà ÀÌ¸§ Á¦°Å.
+  labs(x="", y="") + # ì¶• ì´ë¦„ ì œê±°.
   geom_bar(stat="identity", width=1) +
-  coord_polar("y", start=0) + # ÆÄÀÌ Â÷Æ® ¸ğ¾çÀ¸·Î º¯È¯, ½ÃÀÛ°¢ 90µµ.
+  coord_polar("y", start=0) + # íŒŒì´ ì°¨íŠ¸ ëª¨ì–‘ìœ¼ë¡œ ë³€í™˜, ì‹œì‘ê° 90ë„.
   theme(legend.title=element_blank(), legend.text = element_text(size = 12)) +
   geom_text(aes(label=paste0(round(jong_value/sum(jong_value)*100,0),"%")), family = "NanumGothic",size=5, position=position_stack((vjust=0.5))) +
-  scale_fill_manual(values = mycols) # ÆÄÀÌ Â÷Æ® »ö ÁöÁ¤.
+  scale_fill_manual(values = mycols) # íŒŒì´ ì°¨íŠ¸ ìƒ‰ ì§€ì •.
