@@ -1,9 +1,9 @@
-### title : ÁöÇÏÃ¶ ½Ã°£´ëº° ½ÂÇÏÂ÷ ÀÎ¿ø °¡Àå ¸¹Àº ¿ª ½Ã°¢È­.
+### title : ì§€í•˜ì²  ì‹œê°„ëŒ€ë³„ ìŠ¹í•˜ì°¨ ì¸ì› ê°€ì¥ ë§ì€ ì—­ ì‹œê°í™”.
 ### email : ynjoon@naver.com
 # --------------------------------------------------------------------------------------------
 
-### µ¥ÀÌÅÍ ·Îµå.
-setwd("C:\\Users\\yoonjun\\Desktop\\jun\\4_1\\R_programming_visualization\\°úÁ¦\\±â¸»°úÁ¦\\02")
+### ë°ì´í„° ë¡œë“œ.
+setwd("ë°ì´í„° ë””ë ‰í† ë¦¬")
 data <- read.csv('data02.csv', stringsAsFactors = F)
 head(data)
 str(data)
@@ -11,7 +11,7 @@ colnames(data) <- as.factor(colnames(data))
 
 
 
-### ½Ã°£´ëº° ½ÂÂ÷ ÀÎ¿ø ÃÖ´ë°ª&¿ª ±¸ÇÏ±â.
+### ì‹œê°„ëŒ€ë³„ ìŠ¹ì°¨ ì¸ì› ìµœëŒ€ê°’&ì—­ êµ¬í•˜ê¸°.
 max_total <- sapply(data[4:51], max)
 max_in <- c()
 max_out <- c()
@@ -23,15 +23,15 @@ for (i in c(1:24)){
 max_in_sub <- c()
 max_out_sub <- c()
 for (i in c(1:24)){
-  max_in_sub <- c(max_in_sub, data[which(data[,2*i+2]==max_in[i]),3][1]) # ¿­º°·Î ÃÖ´ë ½ÂÂ÷ ÀÎ¿ø°ªÀ» °¡Áø ÀÎµ¦½º·Î ¿ª¸í ÃßÃâ.
-  max_out_sub <- c(max_out_sub, data[which(data[,2*i+3]==max_out[i]),3][1]) # ¿­º°·Î ÃÖ´ë ÇÏÂ÷ ÀÎ¿ø°ªÀ» °¡Áø ÀÎµ¦½º·Î ¿ª¸í ÃßÃâ.
+  max_in_sub <- c(max_in_sub, data[which(data[,2*i+2]==max_in[i]),3][1]) # ì—´ë³„ë¡œ ìµœëŒ€ ìŠ¹ì°¨ ì¸ì›ê°’ì„ ê°€ì§„ ì¸ë±ìŠ¤ë¡œ ì—­ëª… ì¶”ì¶œ.
+  max_out_sub <- c(max_out_sub, data[which(data[,2*i+3]==max_out[i]),3][1]) # ì—´ë³„ë¡œ ìµœëŒ€ í•˜ì°¨ ì¸ì›ê°’ì„ ê°€ì§„ ì¸ë±ìŠ¤ë¡œ ì—­ëª… ì¶”ì¶œ.
 }
 max_in_sub
 max_out_sub
 
 
 
-### ±×·¡ÇÁ Ãâ·ÂÀ» À§ÇÑ µ¥ÀÌÅÍÇÁ·¹ÀÓ »ı¼º ¹× ÆíÁı. ---> ½ÂÂ÷.
+### ê·¸ë˜í”„ ì¶œë ¥ì„ ìœ„í•œ ë°ì´í„°í”„ë ˆì„ ìƒì„± ë° í¸ì§‘. ---> ìŠ¹ì°¨.
 label <- c(4:27)
 label <- as.character(label)
 label <- paste(max_in_sub, "(", label, ")", sep="")
@@ -41,8 +41,8 @@ df_in$max_in <- as.numeric(df_in$max_in)
 
 
 
-### ¸·´ë ±×·¡ÇÁ ½Ã°¢È­.
-library(extrafont) # ³ª´®°íµñ ÆùÆ® »ç¿ë.
+### ë§‰ëŒ€ ê·¸ë˜í”„ ì‹œê°í™”.
+library(extrafont) # ë‚˜ëˆ”ê³ ë”• í°íŠ¸ ì‚¬ìš©.
 fonts()
 fonttable()
 library(ggplot2)
@@ -50,15 +50,15 @@ ggplot(df_in, aes(x=label, y=max_in)) +
   theme_bw() +
   scale_x_discrete(limits=df_in$label) +
   geom_bar(stat="identity", fill='red', alpha=0.5) +
-  ggtitle('½Ã°£´ëº° ½ÂÂ÷ ÀÎ¿øÀÌ °¡Àå ¸¹Àº ¿ª') +
+  ggtitle('ì‹œê°„ëŒ€ë³„ ìŠ¹ì°¨ ì¸ì›ì´ ê°€ì¥ ë§ì€ ì—­') +
   theme(plot.title=element_text(family = "NanumGothic", face = "bold", hjust = 0.5, size = 12)) +
   theme(axis.text.x=element_text(angle=90, hjust=1, size=12, family='NanumGothic')) +
   labs(x="", y="") +
-  scale_y_continuous(labels = scales::comma) # yÃà Ç¥½Ã ÁöÁ¤. ºÎµ¿¼Ò¼öÁ¡ Ç¥±â¸¦ ¾ø¾Ú.
+  scale_y_continuous(labels = scales::comma) # yì¶• í‘œì‹œ ì§€ì •. ë¶€ë™ì†Œìˆ˜ì  í‘œê¸°ë¥¼ ì—†ì•°.
 
 
 
-### ±×·¡ÇÁ Ãâ·ÂÀ» À§ÇÑ µ¥ÀÌÅÍÇÁ·¹ÀÓ »ı¼º ¹× ÆíÁı.  ---> ÇÏÂ÷.
+### ê·¸ë˜í”„ ì¶œë ¥ì„ ìœ„í•œ ë°ì´í„°í”„ë ˆì„ ìƒì„± ë° í¸ì§‘.  ---> í•˜ì°¨.
 label <- c(4:27)
 label <- as.character(label)
 label <- paste(max_out_sub, "(", label, ")", sep="")
@@ -68,13 +68,13 @@ df_out$max_out <- as.numeric(df_out$max_out)
 
 
 
-### ¸·´ë ±×·¡ÇÁ ½Ã°¢È­.
+### ë§‰ëŒ€ ê·¸ë˜í”„ ì‹œê°í™”.
 ggplot(df_out, aes(x=label, y=max_out)) +
   theme_bw() +
   scale_x_discrete(limits=df_out$label) +
   geom_bar(stat="identity", fill='blue', alpha=0.5) +
-  ggtitle('½Ã°£´ëº° ÇÏÂ÷ ÀÎ¿øÀÌ °¡Àå ¸¹Àº ¿ª') +
+  ggtitle('ì‹œê°„ëŒ€ë³„ í•˜ì°¨ ì¸ì›ì´ ê°€ì¥ ë§ì€ ì—­') +
   theme(plot.title=element_text(family = "NanumGothic", face = "bold", hjust = 0.5, size = 12)) +
   theme(axis.text.x=element_text(angle=90, hjust=1, size=12, family='NanumGothic')) +
   labs(x="", y="") +
-  scale_y_continuous(labels = scales::comma) # yÃà Ç¥½Ã ÁöÁ¤. ºÎµ¿¼Ò¼öÁ¡ Ç¥±â¸¦ ¾ø¾Ú.
+  scale_y_continuous(labels = scales::comma) # yì¶• í‘œì‹œ ì§€ì •. ë¶€ë™ì†Œìˆ˜ì  í‘œê¸°ë¥¼ ì—†ì•°.
