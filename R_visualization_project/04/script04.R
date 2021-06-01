@@ -1,56 +1,56 @@
-### title : ¿ªº° ÀÌ¿ë ½Â°´ Áöµµ ½Ã°¢È­.
+### title : ì—­ë³„ ì´ìš© ìŠ¹ê° ì§€ë„ ì‹œê°í™”.
 ### email : ynjoon@naver.com
 # --------------------------------------------------------------------------------------------
 
-### µ¥ÀÌÅÍ ·Îµå.
-setwd("C:\\Users\\yoonjun\\Desktop\\jun\\4_1\\R_programming_visualization\\°úÁ¦\\±â¸»°úÁ¦\\04")
+### ë°ì´í„° ë¡œë“œ.
+setwd("ë°ì´í„° ë””ë ‰í† ë¦¬")
 data <- read.csv('data04.csv', stringsAsFactors = F)
 head(data)
 str(data)
 
 
 
-### »óÀ§ 10°³ ¿ª¸¸ ½Ã°¢È­ÇÏ±â À§ÇÑ ÀüÃ³¸®.
+### ìƒìœ„ 10ê°œ ì—­ë§Œ ì‹œê°í™”í•˜ê¸° ìœ„í•œ ì „ì²˜ë¦¬.
 library(dplyr)
 data <- data %>%
-  arrange(desc(ÀÌ¿ë½Â°´¼ö)) %>%
+  arrange(desc(ì´ìš©ìŠ¹ê°ìˆ˜)) %>%
   head(10)
 
 
 
-# ±¸±Û¸Ê ¶óÀÌºê·¯¸® ·Îµå ¹× Å° µî·Ï.
+# êµ¬ê¸€ë§µ ë¼ì´ë¸ŒëŸ¬ë¦¬ ë¡œë“œ ë° í‚¤ ë“±ë¡.
 library(ggmap)
 library(ggplot2)
 register_google(key = 'AIzaSyATmkSzLIV1P7813YD5a_WOmi_nx7sr9O8')
-data$size_ <- data$ÀÌ¿ë½Â°´¼ö/median(data$ÀÌ¿ë½Â°´¼ö) # ÀÌ¿ë½Â°´¼ö °ªÀ» ±×´ë·Î Àû¿ëÇÒ ¼ö ¾øÀ¸¹Ç·Î, ´ÙÀ½°ú °°ÀÌ ÀüÃ³¸®.
+data$size_ <- data$ì´ìš©ìŠ¹ê°ìˆ˜/median(data$ì´ìš©ìŠ¹ê°ìˆ˜) # ì´ìš©ìŠ¹ê°ìˆ˜ ê°’ì„ ê·¸ëŒ€ë¡œ ì ìš©í•  ìˆ˜ ì—†ìœ¼ë¯€ë¡œ, ë‹¤ìŒê³¼ ê°™ì´ ì „ì²˜ë¦¬.
 
 
-# ±¸±Û¸Ê ¼³Á¤.
-cen <- c((max(data$°æµµ)+min(data$°æµµ))/2, (max(data$À§µµ)+min(data$À§µµ))/2) # Áöµµ Áß½É ÁÂÇ¥ ÁöÁ¤.
+# êµ¬ê¸€ë§µ ì„¤ì •.
+cen <- c((max(data$ê²½ë„)+min(data$ê²½ë„))/2, (max(data$ìœ„ë„)+min(data$ìœ„ë„))/2) # ì§€ë„ ì¤‘ì‹¬ ì¢Œí‘œ ì§€ì •.
 map <- get_googlemap(center = cen,
                      maptype = 'roadmap',
                      zoom = 12,
                      color='bw') # 
 
 
-library(extrafont) # ³ª´®°íµñ ÆùÆ® »ç¿ë.
+library(extrafont) # ë‚˜ëˆ”ê³ ë”• í°íŠ¸ ì‚¬ìš©.
 fonts()
 fonttable()
 
 gmap <- ggmap(map)
-gmap <- gmap + # Æ÷ÀÎÅÍ Ãâ·Â.
-  geom_point(data = data, aes(x = °æµµ, y = À§µµ, size=size_), alpha = 0.5, color = '#FF0033') +
+gmap <- gmap + # í¬ì¸í„° ì¶œë ¥.
+  geom_point(data = data, aes(x = ê²½ë„, y = ìœ„ë„, size=size_), alpha = 0.5, color = '#FF0033') +
   scale_size_continuous(range=c(1,14))
 
-gmap + geom_text(data=data, # ÅØ½ºÆ® Ãâ·Â.             
-                   aes(x=°æµµ,y=À§µµ+0.005), #±Û¾¾ À§Ä¡               
-                   size=3.5, #±Û¾¾ Å©±â
+gmap + geom_text(data=data, # í…ìŠ¤íŠ¸ ì¶œë ¥.             
+                   aes(x=ê²½ë„,y=ìœ„ë„+0.005), #ê¸€ì”¨ ìœ„ì¹˜               
+                   size=3.5, #ê¸€ì”¨ í¬ê¸°
                    family='NanumGothic',
                    color='#8B00FF',
                    fontface=2,
-                   label=data$¿ª¸í) +
-  ggtitle('ÀÌ¿ë°´ ÃÖ´Ù 10°³ ÁöÇÏÃ¶¿ª Áöµµ ½Ã°¢È­') +
+                   label=data$ì—­ëª…) +
+  ggtitle('ì´ìš©ê° ìµœë‹¤ 10ê°œ ì§€í•˜ì² ì—­ ì§€ë„ ì‹œê°í™”') +
   theme(plot.title = element_text(family = "NanumGothic", face = "bold", hjust = 0.5, size = 13), 
-        legend.title=element_blank(), legend.position = 'none') + # plot Á¦¸ñ, ¹ü·Ê ÆíÁı.
-  labs(x="", y="") # Ãà ÀÌ¸§ Á¦°Å.
+        legend.title=element_blank(), legend.position = 'none') + # plot ì œëª©, ë²”ë¡€ í¸ì§‘.
+  labs(x="", y="") # ì¶• ì´ë¦„ ì œê±°.
         
