@@ -1,19 +1,19 @@
-### title : ÁöÇÏÃ¶ ½Ã°£´ëº° ½ÂÇÏÂ÷ ÀÎ¿ø ÃßÀÌ ½Ã°¢È­.
+### title : ì§€í•˜ì²  ì‹œê°„ëŒ€ë³„ ìŠ¹í•˜ì°¨ ì¸ì› ì¶”ì´ ì‹œê°í™”.
 ### email : ynjoon@naver.com
 # --------------------------------------------------------------------------------------------
 
-### µ¥ÀÌÅÍ ·Îµå.
-setwd("C:\\Users\\yoonjun\\Desktop\\jun\\4_1\\R_programming_visualization\\°úÁ¦\\±â¸»°úÁ¦\\01")
+### ë°ì´í„° ë¡œë“œ.
+setwd("ë°ì´í„° ë””ë ‰í† ë¦¬")
 data <- read.csv('data01.csv', stringsAsFactors = F)
 head(data)
 str(data)
 
 
 
-### ½Ã°£´ëº° ½ÂÇÏÂ÷ ÀÎ¿øÇÕ ±¸ÇÏ±â.
+### ì‹œê°„ëŒ€ë³„ ìŠ¹í•˜ì°¨ ì¸ì›í•© êµ¬í•˜ê¸°.
 total <- sapply(data[4:51],sum)
-t_in <- c() # ½Ã°£º° ½ÂÂ÷ º¤ÅÍ ÃÊ±âÈ­.
-t_out <- c() # ½Ã°£º° ÇÏÂ÷ º¤ÅÍ ÃÊ±âÈ­.
+t_in <- c() # ì‹œê°„ë³„ ìŠ¹ì°¨ ë²¡í„° ì´ˆê¸°í™”.
+t_out <- c() # ì‹œê°„ë³„ í•˜ì°¨ ë²¡í„° ì´ˆê¸°í™”.
 
 for (i in 1:24){
   t_in <- cbind(t_in, total[[2*i-1]])
@@ -24,16 +24,16 @@ t_in
 t_out
 str(t_in)
 str(t_out)
-t_in <- t(t_in) # ÀüÄ¡.
-t_out <- t(t_out) # ÀüÄ¡.
+t_in <- t(t_in) # ì „ì¹˜.
+t_out <- t(t_out) # ì „ì¹˜.
 
 
 
-### ±×·¡ÇÁ Ãâ·ÂÀ» À§ÇÑ µ¥ÀÌÅÍÇÁ·¹ÀÓ »ı¼º ¹× ÆíÁı.
+### ê·¸ë˜í”„ ì¶œë ¥ì„ ìœ„í•œ ë°ì´í„°í”„ë ˆì„ ìƒì„± ë° í¸ì§‘.
 df <- rbind(t_in, t_out)
 df <- as.data.frame(df)
-group_in <- rep('½ÂÂ÷',24)
-group_out <- rep('ÇÏÂ÷',24)
+group_in <- rep('ìŠ¹ì°¨',24)
+group_out <- rep('í•˜ì°¨',24)
 group <- c(group_in,group_out)
 df$group <- group
 time <- rep(4:27, 2)
@@ -43,20 +43,20 @@ df
 
 
 
-### ±×·¡ÇÁ Ãâ·Â.
+### ê·¸ë˜í”„ ì¶œë ¥.
 library(ggplot2)
-library(extrafont) # ³ª´®°íµñ ÆùÆ® »ç¿ë.
+library(extrafont) # ë‚˜ëˆ”ê³ ë”• í°íŠ¸ ì‚¬ìš©.
 fonts()
 fonttable()
 
 ggplot(df, aes(x=time, y=count, group=group, color=group)) + 
   geom_line(size=1.0) + 
-  theme_bw() + # plot Å×¸¶ ÁöÁ¤.
-  ggtitle('ÁöÇÏÃ¶ ½Ã°£´ëº° ½ÂÇÏÂ÷ ÀÎ¿ø ÃßÀÌ') + 
+  theme_bw() + # plot í…Œë§ˆ ì§€ì •.
+  ggtitle('ì§€í•˜ì²  ì‹œê°„ëŒ€ë³„ ìŠ¹í•˜ì°¨ ì¸ì› ì¶”ì´') + 
   theme(plot.title = element_text(family = "NanumGothic", face = "bold", hjust = 0.5, size = 12)) +
   labs(x="", y="") +
-  theme(legend.position = c(0.9,0.9)) + # ¹ü·Ê À§Ä¡ ÁöÁ¤.
+  theme(legend.position = c(0.9,0.9)) + # ë²”ë¡€ ìœ„ì¹˜ ì§€ì •.
   theme(legend.text = element_text(size = 12)) +
   theme(legend.title = element_blank()) +
-  scale_x_continuous(breaks=seq(4, 27, 1)) + # xÃà ÁöÁ¤.
-  scale_y_continuous(labels = scales::comma) # yÃà Ç¥½Ã ÁöÁ¤. ºÎµ¿¼Ò¼öÁ¡ Ç¥±â¸¦ ¾ø¾Ú.
+  scale_x_continuous(breaks=seq(4, 27, 1)) + # xì¶• ì§€ì •.
+  scale_y_continuous(labels = scales::comma) # yì¶• í‘œì‹œ ì§€ì •. ë¶€ë™ì†Œìˆ˜ì  í‘œê¸°ë¥¼ ì—†ì•°.
