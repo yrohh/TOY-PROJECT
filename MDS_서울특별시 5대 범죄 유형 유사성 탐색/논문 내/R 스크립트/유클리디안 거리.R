@@ -1,30 +1,30 @@
-setwd("C:\\Users\\yoonjun\\Desktop\\jun\\4_1\\machine_learning\\³í¹®\\³í¹® ÀÛ¼º")
+setwd("")
 data <- read.csv('data.csv')
 
 library(dplyr)
 head(data)
 str(data)
 summary(data)
-# ¼öÄ¡°ª ¼ÓÇÑ ÇÇÃ³ Å¸ÀÔ numeric º¯°æ.
-data$»ìÀÎ <- as.numeric(data$»ìÀÎ)
-data$°­µµ <- as.numeric(data$°­µµ)
-data$°­°£°­Á¦ÃßÇà <- as.numeric(data$°­°£°­Á¦ÃßÇà)
-data$Àıµµ <- as.numeric(data$Àıµµ)
-data$Æø·Â <- as.numeric(data$Æø·Â)
+# ìˆ˜ì¹˜ê°’ ì†í•œ í”¼ì²˜ íƒ€ì… numeric ë³€ê²½.
+data$ì‚´ì¸ <- as.numeric(data$ì‚´ì¸)
+data$ê°•ë„ <- as.numeric(data$ê°•ë„)
+data$ê°•ê°„ê°•ì œì¶”í–‰ <- as.numeric(data$ê°•ê°„ê°•ì œì¶”í–‰)
+data$ì ˆë„ <- as.numeric(data$ì ˆë„)
+data$í­ë ¥ <- as.numeric(data$í­ë ¥)
 
-data.2014 <- data %>% filter(±â°£ == "2014")
-data.2015 <- data %>% filter(±â°£ == "2015")
-data.2016 <- data %>% filter(±â°£ == "2016")
-data.2017 <- data %>% filter(±â°£ == "2017")
-data.2018 <- data %>% filter(±â°£ == "2018")
-data.2019 <- data %>% filter(±â°£ == "2019")
+data.2014 <- data %>% filter(ê¸°ê°„ == "2014")
+data.2015 <- data %>% filter(ê¸°ê°„ == "2015")
+data.2016 <- data %>% filter(ê¸°ê°„ == "2016")
+data.2017 <- data %>% filter(ê¸°ê°„ == "2017")
+data.2018 <- data %>% filter(ê¸°ê°„ == "2018")
+data.2019 <- data %>% filter(ê¸°ê°„ == "2019")
 
-# MinMax Á¤±ÔÈ­ ÇÔ¼ö »ı¼º.
+# MinMax ì •ê·œí™” í•¨ìˆ˜ ìƒì„±.
 normalize <- function(x) {
   return((x-min(x))/(max(x)-min(x)))
 }
 
-# 5°³ ¹üÁË ¼ö MinMax Á¤±ÔÈ­.
+# 5ê°œ ë²”ì£„ ìˆ˜ MinMax ì •ê·œí™”.
 data.2014[3:7] <- sapply(data.2014[3:7], normalize)
 data.2015[3:7] <- sapply(data.2015[3:7], normalize)
 data.2016[3:7] <- sapply(data.2016[3:7], normalize)
@@ -32,7 +32,7 @@ data.2017[3:7] <- sapply(data.2017[3:7], normalize)
 data.2018[3:7] <- sapply(data.2018[3:7], normalize)
 data.2019[3:7] <- sapply(data.2019[3:7], normalize)
 
-# ¸ÅÆ®¸¯½º »ı¼º ÇÔ¼ö.
+# ë§¤íŠ¸ë¦­ìŠ¤ ìƒì„± í•¨ìˆ˜.
 get_matrix <- function(df) {
   ma <- cbind(df[3:7])
   ma <- as.matrix(ma)
@@ -40,7 +40,7 @@ get_matrix <- function(df) {
   return(ma)
 }
 
-# ¸ÅÆ®¸¯½º »ı¼º.
+# ë§¤íŠ¸ë¦­ìŠ¤ ìƒì„±.
 ma.2014 <- get_matrix(data.2014)
 ma.2015 <- get_matrix(data.2015)
 ma.2016 <- get_matrix(data.2016)
@@ -48,7 +48,7 @@ ma.2017 <- get_matrix(data.2017)
 ma.2018 <- get_matrix(data.2018)
 ma.2019 <- get_matrix(data.2019)
 
-# mds µµÃâ ÇÔ¼ö.
+# mds ë„ì¶œ í•¨ìˆ˜.
 get_mds <- function(ma) {
   # mul <- ma %*% t(ma)
   dist <- dist(ma)
@@ -56,7 +56,7 @@ get_mds <- function(ma) {
   return(mds)
 }
 
-# ¿¬º° mds µµÃâ.
+# ì—°ë³„ mds ë„ì¶œ.
 mds.2014 <- get_mds(ma.2014)
 mds.2015 <- get_mds(ma.2015)
 mds.2016 <- get_mds(ma.2016)
@@ -69,21 +69,21 @@ mds.2017[,1] <- -(mds.2017[,1])
 mds.2018[,1] <- -(mds.2018[,1])
 mds.2018[,2] <- -(mds.2018[,2])
 mds.2019[,1] <- -(mds.2019[,1])
-# mds.2019[,1] <- -(mds.2019[,1]) # ´Ù¸¥ ÇØ¿Í xÃàÀÌ ¹İ´ë.
-# ±×·¡ÇÁ ½Ã°¢È­.
+# mds.2019[,1] <- -(mds.2019[,1]) # ë‹¤ë¥¸ í•´ì™€ xì¶•ì´ ë°˜ëŒ€.
+# ê·¸ë˜í”„ ì‹œê°í™”.
 # install.packages("extrafont")
 library(extrafont)
 fonts()
 fonttable()
 # font_import(pattern = "NanumGothic")
 
-# MDS ½Ã°¢È­ ÇÔ¼ö.
+# MDS ì‹œê°í™” í•¨ìˆ˜.
 make_plot <- function(mds,n, cols) {
   plot(mds, type='n', ann=F, axes=F) +
-    title(main=paste(n, "³â Áö¿ªº° À¯»çµµ 5´ë ¹üÁË", sep=""), cex.main=2, family = "NanumGothic") +
+    title(main=paste(n, "ë…„ ì§€ì—­ë³„ ìœ ì‚¬ë„ 5ëŒ€ ë²”ì£„", sep=""), cex.main=2, family = "NanumGothic") +
     text(mds, rownames(mds), col=cols, cex=1.5)
 }
-# ¿¬µµº° MDS ½Ã°¢È­.
+# ì—°ë„ë³„ MDS ì‹œê°í™”.
 make_plot(mds.2014, 2014, 'black')
 make_plot(mds.2015, 2015, 'black')
 make_plot(mds.2016, 2016, 'black')
@@ -91,7 +91,7 @@ make_plot(mds.2017, 2017, 'black')
 make_plot(mds.2018, 2018, 'black')
 make_plot(mds.2019, 2019, 'black')
 
-# 5³â µ¥ÀÌÅÍ ÇÁ·¹ÀÓ »ı¼º.
+# 5ë…„ ë°ì´í„° í”„ë ˆì„ ìƒì„±.
 mds.2014 <- cbind(mds.2014, year=2014)
 mds.2015 <- cbind(mds.2015, year=2015)
 mds.2016 <- cbind(mds.2016, year=2016)
@@ -120,17 +120,17 @@ rownames(mds.2019) <- NULL
 mds.all <- rbind(mds.2014, mds.2015, mds.2016, mds.2017, mds.2018, mds.2019)
 colnames(mds.all) <- c("x", "y", "year", "location")
 mds.all
-# ÀüÃ¼ ½Ã°¢È­.
+# ì „ì²´ ì‹œê°í™”.
 library(ggplot2)
 p <- ggplot(data=mds.all, mapping = aes(x=x, y=y)) + 
   theme_bw() +
-  ggtitle("2014~2019³â ÀÚÄ¡±¸º° 5´ë ¹üÁË ¹ß»ı À¯»çµµ MDS") +
+  ggtitle("2014~2019ë…„ ìì¹˜êµ¬ë³„ 5ëŒ€ ë²”ì£„ ë°œìƒ ìœ ì‚¬ë„ MDS") +
   theme(plot.title = element_text(family = "NanumGothic", face = "bold", hjust = 0.5, size = 15, color = "black")) +
-  scale_color_discrete(name="¿¬µµ") +
+  scale_color_discrete(name="ì—°ë„") +
   geom_text(aes(label=location, color=as.factor(year)))
 p
 
-# ±×·¡ÇÁ ¾Ö´Ï¸ŞÀÌ¼Ç.
+# ê·¸ë˜í”„ ì• ë‹ˆë©”ì´ì…˜.
 # install.packages('gganimate')
 library(gganimate)
 p <- p + transition_time(year) + 
